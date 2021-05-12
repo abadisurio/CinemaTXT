@@ -1,0 +1,2 @@
+com/abadisurio/cinematxt/test/BuildConfig.java
+ com.abadisurio.cinematxt.test.BuildConfig

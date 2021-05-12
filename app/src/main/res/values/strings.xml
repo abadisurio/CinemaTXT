@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CinemaTXT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="movies">Movies</string>
+    <string name="tvshows">TV Shows</string>
+    <string name="releasedate">Release Date</string>
+    <string name="title">Title</string>
+    <string name="description_movie">Description</string>
+    <string name="description">Lorem ipsum dolor sit amet</string>
+    <string name="share">Share</string>
+    <string name="description_poster_show">Poster show</string>
+</resources>

@@ -1,0 +1,54 @@
+Unit Test
+
+MoviesViewModelTest
+ - Memuat Movies
+    * Memastikan data movies tidak null
+    * Memastikan jumlah data movies sesuai dengan yang diharapkan
+
+TVShowViewModelTest
+ - Memuat TV Show
+     * Memastikan data tv show tidak null
+     * Memastikan jumlah data tv show sesuai dengan yang diharapkan
+
+DetailViewModelTest
+ - Memuat Detail Movie
+    * Memastikan movieId telah sesuai
+    * Memastikan imagePath telah sesuai
+    * Memastikan release_date telah sesuai
+    * Memastikan text_title telah sesuai
+    * Memastikan text_description telah sesuai
+
+ - Memuat Detail TV Show
+    * Memastikan tvShowId telah sesuai
+    * Memastikan imagePath telah sesuai
+    * Memastikan release_date telah sesuai
+    * Memastikan text_title telah sesuai
+    * Memastikan text_description telah sesuai
+
+Instrumentation Test
+
+Pengujian halaman Home Tab Movies
+ - Memastikan tablayout telah ditampilkan
+ - Memberi tindakan klik pada tab movies
+ - Memastikan viewpager telah ditampilkan
+ - Memastikan recycleview telah ditampilkan
+ - Memastikan gambar dimuat dengan baik
+ - Memberi tindakan klik pada item movies
+ - Memastikan halaman detail berhasil ditampilkan
+
+Pengujian halaman Home Tab TV Show
+ - Memastikan tablayout telah ditampilkan
+ - Memberi tindakan klik pada tab tv show
+ - Memastikan viewpager telah ditampilkan
+ - Memastikan recycleview telah ditampilkan
+ - Memastikan gambar dimuat dengan baik
+ - Memberi tindakan klik pada item tv show
+ - Memastikan halaman detail berhasil ditampilkan
+
+Pengujian halaman Detail
+ - Memastikan gambar telah ditampilkan
+ - Memastikan poster telah ditampilkan
+ - Memastikan release_date telah ditampilkan
+ - Memastikan text_title telah ditampilkan
+ - Memastikan text_description telah ditampilkan
+ - Memberi tindakan pada btn_share
