@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abadisurio.cinematxt.databinding.FragmentTVShowsBinding
+import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
 
 class TVShowsFragment : Fragment() {
 
@@ -21,7 +22,9 @@ class TVShowsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TVShowsViewModel::class.java]
+            val factory = ViewModelFactory.getInstance(requireActivity())
+//            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MoviesViewModel::class.java]
+            val viewModel = ViewModelProvider(this, factory)[TVShowsViewModel::class.java]
             val tvshows = viewModel.getTVShows()
 
             val tvshowsAdapter = TVShowsAdapter()

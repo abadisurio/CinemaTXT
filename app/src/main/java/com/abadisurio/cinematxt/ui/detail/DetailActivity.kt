@@ -10,6 +10,7 @@ import com.abadisurio.cinematxt.data.MovieEntity
 import com.abadisurio.cinematxt.data.TVShowEntity
 import com.abadisurio.cinematxt.databinding.ActivityDetailBinding
 import com.abadisurio.cinematxt.databinding.ContentDetailBinding
+import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -47,11 +48,13 @@ class DetailActivity : AppCompatActivity() {
             shareIntent.putExtra(Intent.EXTRA_TEXT, "Lihat $showTitle sekarang!")
             startActivity(Intent.createChooser(shareIntent, "Bagikan" ))
         }
-
-        val viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.NewInstanceFactory()
-        )[DetailViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+//            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MoviesViewModel::class.java]
+        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+//        val viewModel = ViewModelProvider(
+//            this,
+//            ViewModelProvider.NewInstanceFactory()
+//        )[DetailViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
