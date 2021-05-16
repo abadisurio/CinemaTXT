@@ -1,10 +1,17 @@
 package com.abadisurio.cinematxt.ui.detail
 
+import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class DetailViewModelTest {
     private lateinit var viewModel: DetailViewModel
     private val dummyMovie = DataDummy.generateDummyMovies()[0]
@@ -12,16 +19,20 @@ class DetailViewModelTest {
     private val movieId = dummyMovie.movieId
     private val tvShowId = dummyTVShow.tvShowId
 
+    @Mock
+    private lateinit var cinemaTXTRepository: CinemaTXTRepository
+
     @Before
     fun moviesSetUp() {
-        viewModel = DetailViewModel()
+        viewModel = DetailViewModel(cinemaTXTRepository)
         viewModel.setSelectedShow(movieId)
     }
 
     @Test
     fun getMovie() {
-        viewModel.setSelectedShow(dummyMovie.movieId)
+        `when`(cinemaTXTRepository.getDetailMovie(movieId)).thenReturn(dummyMovie)
         val movieEntity = viewModel.getMovie()
+        verify(cinemaTXTRepository).getDetailMovie(movieId)
         assertNotNull(movieEntity)
         assertEquals(dummyMovie.movieId, movieEntity.movieId)
         assertEquals(dummyMovie.imagePath, movieEntity.imagePath)
@@ -32,14 +43,15 @@ class DetailViewModelTest {
 
     @Before
     fun tvShowSetUp() {
-        viewModel = DetailViewModel()
+        viewModel = DetailViewModel(cinemaTXTRepository)
         viewModel.setSelectedShow(tvShowId)
     }
 
     @Test
     fun getTVShow() {
-        viewModel.setSelectedShow(dummyTVShow.tvShowId)
+        `when`(cinemaTXTRepository.getDetailTVShow(tvShowId)).thenReturn(dummyTVShow)
         val tvShowEntity = viewModel.getTVShow()
+        verify(cinemaTXTRepository).getDetailTVShow(tvShowId)
         assertNotNull(tvShowEntity)
         assertEquals(dummyTVShow.tvShowId, tvShowEntity.tvShowId)
         assertEquals(dummyTVShow.imagePath, tvShowEntity.imagePath)

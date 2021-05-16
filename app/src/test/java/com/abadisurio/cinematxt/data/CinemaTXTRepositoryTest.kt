@@ -14,7 +14,6 @@ class CinemaTXTRepositoryTest {
     private val cinemaRepository = FakeCinemaTXTRepository(remote)
     private val movieResponses = DataDummy.generateRemoteDummyMovies()
     private val tvShowResponse = DataDummy.generateRemoteDummyTVShows()
-    private val movieId = movieResponses[0].movieId
 
     @Test
     fun getAllMovies() {
