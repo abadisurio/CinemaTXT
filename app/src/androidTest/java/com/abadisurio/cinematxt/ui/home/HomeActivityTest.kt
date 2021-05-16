@@ -20,6 +20,7 @@ class HomeActivityTest {
 
     @Test
     fun loadMovies() {
+        delayTwoSeconds()
         onView(withText("Movies")).perform(click())
         onView(withId(R.id.tabs)).check(matches(isDisplayed()))
         onView(withId(R.id.view_pager)).check(matches(isDisplayed()))
@@ -28,6 +29,7 @@ class HomeActivityTest {
 
     @Test
     fun loadDetailMovies() {
+        delayTwoSeconds()
         onView(withText("Movies")).perform(click())
         onView(withId(R.id.rv_movies)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
@@ -35,6 +37,7 @@ class HomeActivityTest {
                 click()
             )
         )
+        delayTwoSeconds()
         onView(withId(R.id.image_poster2)).perform(ViewActions.swipeUp())
         onView(withId(R.id.image_poster)).check(matches(isDisplayed()))
         onView(withId(R.id.text_title)).check(matches(isDisplayed()))
@@ -46,6 +49,7 @@ class HomeActivityTest {
 
     @Test
     fun loadTVShows() {
+        delayTwoSeconds()
         onView(withText("TV Shows")).perform(click())
         onView(withId(R.id.tabs)).check(matches(isDisplayed()))
         onView(withId(R.id.view_pager)).check(matches(isDisplayed()))
@@ -54,6 +58,7 @@ class HomeActivityTest {
 
     @Test
     fun loadDetailTVSHows() {
+        delayTwoSeconds()
         onView(withText("TV Shows")).perform(click())
         onView(withId(R.id.rv_tvshows)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
@@ -61,6 +66,7 @@ class HomeActivityTest {
                 click()
             )
         )
+        delayTwoSeconds()
         onView(withId(R.id.image_poster2)).perform(ViewActions.swipeUp())
         onView(withId(R.id.image_poster)).check(matches(isDisplayed()))
         onView(withId(R.id.text_title)).check(matches(isDisplayed()))
@@ -68,4 +74,13 @@ class HomeActivityTest {
         onView(withId(R.id.text_date)).check(matches(isDisplayed()))
         onView(withId(R.id.btn_share)).perform(click())
     }
+
+    private fun delayTwoSeconds() {
+        try {
+            Thread.sleep(2000)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+    }
+
 }
