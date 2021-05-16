@@ -23,16 +23,20 @@ class TVShowsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
             val factory = ViewModelFactory.getInstance(requireActivity())
-//            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MoviesViewModel::class.java]
             val viewModel = ViewModelProvider(this, factory)[TVShowsViewModel::class.java]
-            val tvshows = viewModel.getTVShows()
 
             val tvshowsAdapter = TVShowsAdapter()
-            tvshowsAdapter.setTVShows(tvshows)
+
+            fragmentTVShowsBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getTVShows().observe(viewLifecycleOwner, {tvShows ->
+                fragmentTVShowsBinding.progressBar.visibility = View.GONE
+                tvshowsAdapter.setTVShows(tvShows)
+                tvshowsAdapter.notifyDataSetChanged()
+            })
+
             with(fragmentTVShowsBinding.rvTvshows) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
-//                Log.d("movie: ", tvshowsAdapter.toString())
                 adapter = tvshowsAdapter
             }
         }

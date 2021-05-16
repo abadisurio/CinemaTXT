@@ -19,6 +19,7 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var contentDetailBinding: ContentDetailBinding
     private lateinit var activityDetailBinding: ActivityDetailBinding
+    private lateinit var detailEntity: DetailEntity
     private var showTitle: String = "film"
 
     companion object {
@@ -32,14 +33,14 @@ class DetailActivity : AppCompatActivity() {
         activityDetailBinding = ActivityDetailBinding.inflate(layoutInflater)
         contentDetailBinding = activityDetailBinding.detailContent
 
+        activityDetailBinding.progressBar.visibility = View.VISIBLE
+        activityDetailBinding.content.visibility = View.INVISIBLE
+
         setContentView(activityDetailBinding.root)
 
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-//        val adapter = DetailAdapter()
-
-        activityDetailBinding.progressBar.visibility = View.VISIBLE
 
         contentDetailBinding.btnShare.setOnClickListener{
             val shareIntent = Intent()
@@ -48,76 +49,76 @@ class DetailActivity : AppCompatActivity() {
             shareIntent.putExtra(Intent.EXTRA_TEXT, "Lihat $showTitle sekarang!")
             startActivity(Intent.createChooser(shareIntent, "Bagikan" ))
         }
-        val factory = ViewModelFactory.getInstance(this)
-//            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MoviesViewModel::class.java]
-        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
-//        val viewModel = ViewModelProvider(
-//            this,
-//            ViewModelProvider.NewInstanceFactory()
-//        )[DetailViewModel::class.java]
 
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
         val extras = intent.extras
+
+
         if (extras != null) {
             val showId = extras.getString(EXTRA_SHOW)
             if (showId != null) {
                 viewModel.setSelectedShow(showId)
                 if (extras.getString(EXTRA_TYPE) == "Movie") {
-                    populateMovie(viewModel.getMovie())
+                    viewModel.getMovie().observe(this, { movie ->
+                        detailEntity = DetailEntity(
+                            movie.movieId,
+                            movie.title,
+                            movie.description,
+                            movie.releaseDate,
+                            movie.imagePath
+                        )
+                        populateDetail(detailEntity)
+                    })
                 } else {
-                    populateTVShow(viewModel.getTVShow())
+                    viewModel.getTVShow().observe(this, { tvShow ->
+                        detailEntity = DetailEntity(
+                            tvShow.tvShowId,
+                            tvShow.title,
+                            tvShow.description,
+                            tvShow.releaseDate,
+                            tvShow.imagePath
+                        )
+                        populateDetail(detailEntity)
+                    })
                 }
             }
         }
 
     }
 
-    private fun populateMovie(movieEntity: MovieEntity) {
-        contentDetailBinding.textTitle.text = movieEntity.title
-        contentDetailBinding.textDescription.text = movieEntity.description
-        contentDetailBinding.textDate.text = movieEntity.releaseDate
-        supportActionBar?.title = movieEntity.title
-        showTitle = movieEntity.title
-            Glide.with(this)
-            .load(movieEntity.imagePath)
-            .transform(RoundedCorners(20))
-            .apply(
-                RequestOptions.placeholderOf(R.drawable.ic_loading)
-                    .error(R.drawable.ic_error))
-            .into(contentDetailBinding.imagePoster)
-        Glide.with(this)
-            .load(movieEntity.imagePath)
-            .transform(RoundedCorners(20))
-            .apply(
-                RequestOptions.placeholderOf(R.drawable.ic_loading)
-                    .error(R.drawable.ic_error))
-            .into(activityDetailBinding.imagePoster2)
+    private fun loadSuccess(){
         activityDetailBinding.progressBar.visibility = View.GONE
-    }
-    private fun populateTVShow(tvShowEntity: TVShowEntity) {
-        contentDetailBinding.textTitle.text = tvShowEntity.title
-        contentDetailBinding.textDescription.text = tvShowEntity.description
-        contentDetailBinding.textDate.text = tvShowEntity.releaseDate
-        supportActionBar?.title = tvShowEntity.title
-        showTitle = tvShowEntity.title
-        Glide.with(this)
-            .load(tvShowEntity.imagePath)
-            .transform(RoundedCorners(20))
-            .apply(
-                RequestOptions.placeholderOf(R.drawable.ic_loading)
-                    .error(R.drawable.ic_error))
-            .into(contentDetailBinding.imagePoster)
-        Glide.with(this)
-            .load(tvShowEntity.imagePath)
-            .transform(RoundedCorners(20))
-            .apply(
-                RequestOptions.placeholderOf(R.drawable.ic_loading)
-                    .error(R.drawable.ic_error))
-            .into(activityDetailBinding.imagePoster2)
-        activityDetailBinding.progressBar.visibility = View.GONE
+        activityDetailBinding.content.visibility = View.VISIBLE
     }
 
+    private fun populateDetail(detailEntity: DetailEntity) {
+        contentDetailBinding.textTitle.text = detailEntity.title
+        contentDetailBinding.textDescription.text = detailEntity.description
+        contentDetailBinding.textDate.text = detailEntity.releaseDate
+        showTitle = detailEntity.title
+        activityDetailBinding.collapseToolbar.title = detailEntity.title
+        val glide = Glide.with(this)
+            .load(detailEntity.imagePath)
+            .transform(RoundedCorners(20))
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.ic_loading)
+                    .error(R.drawable.ic_error))
+
+        glide.into(contentDetailBinding.imagePoster)
+        glide.into(activityDetailBinding.imagePoster2)
+        loadSuccess()
+    }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
 }
+
+data class DetailEntity(
+    var ShowId: String,
+    var title: String,
+    var description: String,
+    var releaseDate: String,
+    var imagePath: String
+)
