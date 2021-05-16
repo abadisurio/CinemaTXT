@@ -60,8 +60,8 @@ class CinemaTXTRepository private constructor(private val remoteDataSource: Remo
     }
 
     override fun getDetailTVShow(tvShowId: String): TVShowEntity {
-        val tvShowResponse = remoteDataSource.getAllTVShows()
         lateinit var tvShow: TVShowEntity
+        val tvShowResponse = remoteDataSource.getAllTVShows()
         for (response in tvShowResponse) {
             if (response.tvShowId == tvShowId) {
                 tvShow = TVShowEntity(response.tvShowId,
