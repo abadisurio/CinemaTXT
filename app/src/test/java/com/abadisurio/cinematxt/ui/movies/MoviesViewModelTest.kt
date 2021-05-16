@@ -1,9 +1,14 @@
 package com.abadisurio.cinematxt.ui.movies
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import com.abadisurio.cinematxt.data.MovieEntity
 import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import org.junit.Assert.*
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -16,8 +21,14 @@ class MoviesViewModelTest {
 
     private lateinit var viewModel: MoviesViewModel
 
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
     @Mock
     private lateinit var cinemaTXTRepository: CinemaTXTRepository
+
+    @Mock
+    private lateinit var observer: Observer<List<MovieEntity>>
 
     @Before
     fun setUp() {
@@ -25,11 +36,20 @@ class MoviesViewModelTest {
     }
 
     @Test
-    fun getCourses() {
-        Mockito.`when`(cinemaTXTRepository.getAllMovies()).thenReturn(DataDummy.generateDummyMovies())
-        val courseEntities = viewModel.getMovies()
+    fun getMovies() {
+
+        val dummyMovies = DataDummy.generateDummyMovies()
+        val movies = MutableLiveData<List<MovieEntity>>()
+        movies.value = dummyMovies
+
+        Mockito.`when`(cinemaTXTRepository.getAllMovies()).thenReturn(movies)
+        val movieEntities = viewModel.getMovies().value
         verify(cinemaTXTRepository).getAllMovies()
-        assertNotNull(courseEntities)
-        assertEquals(11, courseEntities.size)
+        assertNotNull(movieEntities)
+        assertEquals(11, movieEntities?.size)
+
+        viewModel.getMovies().observeForever(observer)
+        verify(observer).onChanged(dummyMovies)
+
     }
 }
