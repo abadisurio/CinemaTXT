@@ -2,6 +2,7 @@ package com.abadisurio.cinematxt.data.source.remote.response
 
 import android.os.Handler
 import android.os.Looper
+import com.abadisurio.cinematxt.utils.EspressoIdlingResource
 import com.abadisurio.cinematxt.utils.JsonHelper
 
 class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
@@ -21,10 +22,18 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
     }
 
     fun getAllMovies(callback: LoadMoviesCallback){
-        handler.postDelayed({callback.onAllMoviesReceived(jsonHelper.loadMovies())}, SERVICE_LATENCY_IN_MILLIS)
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onAllMoviesReceived(jsonHelper.loadMovies())
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
     fun getAllTVShows(callback: LoadTVShowsCallback) {
-        handler.postDelayed({callback.onAllTVShowsReceived(jsonHelper.loadTVShows())}, SERVICE_LATENCY_IN_MILLIS)
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onAllTVShowsReceived(jsonHelper.loadTVShows())
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     interface LoadMoviesCallback {

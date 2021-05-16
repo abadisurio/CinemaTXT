@@ -26,8 +26,8 @@ class JsonHelper(private val context: Context) {
     fun loadMovies(): List<MovieResponse> {
         val list = ArrayList<MovieResponse>()
         try {
-            val responseObject = JSONObject(parsingFileToString("CourseResponses.json").toString())
-            val listArray = responseObject.getJSONArray("courses")
+            val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
+            val listArray = responseObject.getJSONArray("movies")
             for (i in 0 until listArray.length()) {
                 val course = listArray.getJSONObject(i)
 
@@ -50,8 +50,8 @@ class JsonHelper(private val context: Context) {
     fun loadTVShows(): List<TVShowResponse> {
         val list = ArrayList<TVShowResponse>()
         try {
-            val responseObject = JSONObject(parsingFileToString("CourseResponses.json").toString())
-            val listArray = responseObject.getJSONArray("courses")
+            val responseObject = JSONObject(parsingFileToString("TVShowResponses.json").toString())
+            val listArray = responseObject.getJSONArray("tvShows")
             for (i in 0 until listArray.length()) {
                 val course = listArray.getJSONObject(i)
 
