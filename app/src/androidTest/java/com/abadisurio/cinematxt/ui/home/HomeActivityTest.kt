@@ -18,12 +18,11 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-
 class HomeActivityTest {
 
     private val dummyMovie = DataDummy.generateDummyMovies()
     private val dummyTVShow = DataDummy.generateDummyTVShows()
-    private val position = 3
+    private val position = 0
 
     @Before
     fun setUp() {

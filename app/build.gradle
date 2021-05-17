@@ -1,3 +1,4 @@
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -17,6 +18,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        buildConfigField("String", "API_KEY", TMDBApiKey)
+        buildConfigField("String", "BASE_URL", BaseUrl)
+        buildConfigField("String", "BASE_IMAGE_URL", BaseImageUrl)
     }
     buildFeatures {
         viewBinding true

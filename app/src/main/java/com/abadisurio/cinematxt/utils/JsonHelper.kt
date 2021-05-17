@@ -23,30 +23,6 @@ class JsonHelper(private val context: Context) {
         }
     }
 
-    fun loadMovies(): List<MovieResponse> {
-        val list = ArrayList<MovieResponse>()
-        try {
-            val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
-            val listArray = responseObject.getJSONArray("movies")
-            for (i in 0 until listArray.length()) {
-                val course = listArray.getJSONObject(i)
-
-                val id = course.getString("id")
-                val title = course.getString("title")
-                val description = course.getString("description")
-                val releaseDate = course.getString("date")
-                val imagePath = course.getString("imagePath")
-
-                val courseResponse = MovieResponse(id, title, description, releaseDate, imagePath)
-                list.add(courseResponse)
-            }
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
-
-        return list
-    }
-
     fun loadTVShows(): List<TVShowResponse> {
         val list = ArrayList<TVShowResponse>()
         try {
@@ -62,6 +38,30 @@ class JsonHelper(private val context: Context) {
                 val imagePath = course.getString("imagePath")
 
                 val courseResponse = TVShowResponse(id, title, description, releaseDate, imagePath)
+                list.add(courseResponse)
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+        return list
+    }
+
+    fun loadMovies(): List<MovieResponse> {
+        val list = ArrayList<MovieResponse>()
+        try {
+            val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
+            val listArray = responseObject.getJSONArray("movies")
+            for (i in 0 until listArray.length()) {
+                val course = listArray.getJSONObject(i)
+
+                val id = course.getString("id")
+                val title = course.getString("title")
+                val description = course.getString("description")
+                val releaseDate = course.getString("date")
+                val imagePath = course.getString("imagePath")
+
+                val courseResponse = MovieResponse(id, title, description, releaseDate, imagePath)
                 list.add(courseResponse)
             }
         } catch (e: JSONException) {

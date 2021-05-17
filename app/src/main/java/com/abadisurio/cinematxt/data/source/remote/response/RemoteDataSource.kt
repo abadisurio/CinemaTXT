@@ -2,8 +2,19 @@ package com.abadisurio.cinematxt.data.source.remote.response
 
 import android.os.Handler
 import android.os.Looper
+import com.abadisurio.cinematxt.ApiPopoularMoviesResponse
+import com.abadisurio.cinematxt.data.source.remote.ApiService
+import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.API_KEY
+import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.BASE_URL
+import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.LANGUAGE_PREF
+import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.PAGE
 import com.abadisurio.cinematxt.utils.EspressoIdlingResource
 import com.abadisurio.cinematxt.utils.JsonHelper
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
 
@@ -21,6 +32,20 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
             }
     }
 
+    fun getApiService(): ApiService {
+        val loggingInterceptor =
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client = OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build()
+        val retrofit = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+        return retrofit.create(ApiService::class.java)
+    }
+
     fun getAllMovies(callback: LoadMoviesCallback){
         EspressoIdlingResource.increment()
         handler.postDelayed({
@@ -35,6 +60,11 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
     }
+
+    fun getPopularMovies():Call<ApiPopoularMoviesResponse> = getApiService().getPopularMovies(API_KEY, LANGUAGE_PREF, PAGE)
+    fun getDetailMovie(showId: String):Call<ApiDetailMovieResponse> = getApiService().getDetailMovie(showId, API_KEY, LANGUAGE_PREF, PAGE)
+    fun getPopularTVShows():Call<ApiPopoularTVShowsResponse> = getApiService().getPopularTVShows(API_KEY, LANGUAGE_PREF, PAGE)
+    fun getDetailTVShow(showId: String):Call<ApiDetailTVShowResponse> = getApiService().getDetailTVShow(showId, API_KEY, LANGUAGE_PREF, PAGE)
 
     interface LoadMoviesCallback {
         fun onAllMoviesReceived(movieResponse: List<MovieResponse>)

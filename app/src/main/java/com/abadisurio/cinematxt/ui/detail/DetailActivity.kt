@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.abadisurio.cinematxt.R
-import com.abadisurio.cinematxt.data.MovieEntity
-import com.abadisurio.cinematxt.data.TVShowEntity
 import com.abadisurio.cinematxt.databinding.ActivityDetailBinding
 import com.abadisurio.cinematxt.databinding.ContentDetailBinding
 import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
@@ -17,8 +15,8 @@ import com.bumptech.glide.request.RequestOptions
 
 class DetailActivity : AppCompatActivity() {
 
-    private lateinit var contentDetailBinding: ContentDetailBinding
     private lateinit var activityDetailBinding: ActivityDetailBinding
+    private lateinit var contentDetailBinding: ContentDetailBinding
     private lateinit var detailEntity: DetailEntity
     private var showTitle: String = "film"
 

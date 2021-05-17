@@ -10,11 +10,11 @@ object DataDummy {
         val movies = ArrayList<MovieEntity>()
 
         movies.add(MovieEntity(
-            "1",
-            "Alita: Battle Angel",
-            "When Alita awakens with no memory of who she is in a future world she does not recognize, she is taken in by Ido, a compassionate doctor who realizes that somewhere in this abandoned cyborg shell is the heart and soul of a young woman with an extraordinary past.",
-            "02/14/2019",
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xRWht48C2V8XNfzvPehyClOvDni.jpg"
+            "567189",
+            "Tom Clancy's Without Remorse",
+            "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
+            "2021-04-29",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rEm96ib0sPiZBADNKBHKBv5bve9.jpg"
         ))
         movies.add(MovieEntity(
             "2",
@@ -94,11 +94,11 @@ object DataDummy {
         val shows = ArrayList<TVShowEntity>()
 
         shows.add(TVShowEntity(
-            "1",
-            "Arrow",
-            "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
-            "2012",
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg"
+            "88396",
+            "The Falcon and the Winter Soldier",
+            "Following the events of “Avengers: Endgame”, the Falcon, Sam Wilson and the Winter Soldier, Bucky Barnes team up in a global adventure that tests their abilities, and their patience.",
+            "2021-03-19",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6kbAMLteGO8yyewYau6bJ683sw7.jpg"
         ))
         shows.add(TVShowEntity(
             "2",
