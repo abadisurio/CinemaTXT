@@ -3,7 +3,7 @@ package com.abadisurio.cinematxt.data.source
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.abadisurio.cinematxt.ApiPopoularMoviesResponse
+import com.abadisurio.cinematxt.data.source.remote.response.ApiPopoularMoviesResponse
 import com.abadisurio.cinematxt.BuildConfig
 import com.abadisurio.cinematxt.data.MovieEntity
 import com.abadisurio.cinematxt.data.TVShowEntity

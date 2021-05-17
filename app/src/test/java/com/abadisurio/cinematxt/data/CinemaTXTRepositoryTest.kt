@@ -7,10 +7,8 @@ import com.abadisurio.cinematxt.utils.LiveDataTestUtil
 import org.junit.Assert.*
 import org.junit.Test
 import org.mockito.Mockito
-import org.mockito.Mockito.`when`
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.doAnswer
 import org.junit.Rule
 

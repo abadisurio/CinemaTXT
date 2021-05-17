@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.abadisurio.cinematxt.data.MovieEntity
 import com.abadisurio.cinematxt.data.TVShowEntity
 import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
-import com.abadisurio.cinematxt.utils.DataDummy
 
 class DetailViewModel(private val cinemaTXTRepository: CinemaTXTRepository): ViewModel() {
     private lateinit var showId: String

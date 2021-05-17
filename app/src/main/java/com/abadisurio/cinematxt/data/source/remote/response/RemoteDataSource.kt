@@ -2,7 +2,6 @@ package com.abadisurio.cinematxt.data.source.remote.response
 
 import android.os.Handler
 import android.os.Looper
-import com.abadisurio.cinematxt.ApiPopoularMoviesResponse
 import com.abadisurio.cinematxt.data.source.remote.ApiService
 import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.API_KEY
 import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.BASE_URL
@@ -32,7 +31,7 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
             }
     }
 
-    fun getApiService(): ApiService {
+    private fun getApiService(): ApiService {
         val loggingInterceptor =
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()

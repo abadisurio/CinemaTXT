@@ -1,4 +1,4 @@
-package com.abadisurio.cinematxt
+package com.abadisurio.cinematxt.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
@@ -11,13 +11,13 @@ data class ApiPopoularMoviesResponse(
 	val totalPages: Int,
 
 	@field:SerializedName("results")
-	val results: List<ResultsItem>,
+	val results: List<ResultsItemMovie>,
 
 	@field:SerializedName("total_results")
 	val totalResults: Int
 )
 
-data class ResultsItem(
+data class ResultsItemMovie(
 
 	@field:SerializedName("overview")
 	val overview: String,

@@ -1,5 +1,5 @@
 package com.abadisurio.cinematxt.data.source.remote
-import com.abadisurio.cinematxt.ApiPopoularMoviesResponse
+import com.abadisurio.cinematxt.data.source.remote.response.ApiPopoularMoviesResponse
 import com.abadisurio.cinematxt.BuildConfig
 import com.abadisurio.cinematxt.data.source.remote.response.ApiDetailMovieResponse
 import com.abadisurio.cinematxt.data.source.remote.response.ApiDetailTVShowResponse
