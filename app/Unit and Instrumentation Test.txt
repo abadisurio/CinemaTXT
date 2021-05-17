@@ -2,30 +2,40 @@ Unit Test
 
 MoviesViewModelTest
  - Memuat Movies
+    * Mendapatkan data dari repository CinemaTXTRepository
     * Memastikan data movies tidak null
     * Memastikan jumlah data movies sesuai dengan yang diharapkan
+    * Memverifikasi observer dengan observer
 
 TVShowViewModelTest
  - Memuat TV Show
+     * Mendapatkan data dari repository CinemaTXTRepository
      * Memastikan data tv show tidak null
      * Memastikan jumlah data tv show sesuai dengan yang diharapkan
+     * Memverifikasi observer dengan observer
 
 DetailViewModelTest
  - Memuat Detail Movie
+    * Mendapatkan data dari repository
     * Memastikan movieId telah sesuai
     * Memastikan imagePath telah sesuai
     * Memastikan release_date telah sesuai
     * Memastikan text_title telah sesuai
     * Memastikan text_description telah sesuai
+    * Memverifikasi data dari observasi ViewModel
 
  - Memuat Detail TV Show
+    * Mendapatkan data dari repository
     * Memastikan tvShowId telah sesuai
     * Memastikan imagePath telah sesuai
     * Memastikan release_date telah sesuai
     * Memastikan text_title telah sesuai
     * Memastikan text_description telah sesuai
+    * Memverifikasi data dari observasi ViewModel
 
 Instrumentation Test
+
+Mengimplementasikan Idle resource
 
 Pengujian halaman Home Tab Movies
  - Memastikan tablayout telah ditampilkan
@@ -45,10 +55,25 @@ Pengujian halaman Home Tab TV Show
  - Memberi tindakan klik pada item tv show
  - Memastikan halaman detail berhasil ditampilkan
 
-Pengujian halaman Detail
+Pengujian halaman Detail Movie
  - Memastikan gambar telah ditampilkan
  - Memastikan poster telah ditampilkan
  - Memastikan release_date telah ditampilkan
+ - Memastikan release_date telah sesuai dengan sumber data
  - Memastikan text_title telah ditampilkan
+ - Memastikan text_title telah sesuai dengan sumber data
  - Memastikan text_description telah ditampilkan
+ - Memastikan text_description telah sesuai dengan sumber data
+ - Memberi tindakan pada btn_share
+
+
+Pengujian halaman Detail TVShow
+ - Memastikan gambar telah ditampilkan
+ - Memastikan poster telah ditampilkan
+ - Memastikan release_date telah ditampilkan
+ - Memastikan release_date telah sesuai dengan sumber data
+ - Memastikan text_title telah ditampilkan
+ - Memastikan text_title telah sesuai dengan sumber data
+ - Memastikan text_description telah ditampilkan
+ - Memastikan text_description telah sesuai dengan sumber data
  - Memberi tindakan pada btn_share
