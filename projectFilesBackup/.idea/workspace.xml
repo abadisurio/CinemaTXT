@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c3a78b4f-e3a3-4dc3-bf2e-98fabd23a47f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abadisurio/cinematxt/ui/detail/DetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/abadisurio/cinematxt/ui/detail/DetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/abadisurio/cinematxt/ui/detail/DetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/abadisurio/cinematxt/ui/detail/DetailViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/abadisurio/cinematxt/ui/detail/DetailViewModelTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/abadisurio/cinematxt/ui/detail/DetailViewModelTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/abadisurio/cinematxt/ui/tvshows/TVShowsViewModelTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/abadisurio/cinematxt/ui/tvshows/TVShowsViewModelTest.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_API_30_x86]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Data Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="staging" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1s5BQurEOopYtMVRxM7nCJzhgxk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/test/java/com/abadisurio/cinematxt/data/source" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kikuma-android" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1620152767004" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Signing Configs" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.abadisurio.cinematxt.data" />
+      <recent name="com.abadisurio.cinematxt.data.source" />
+      <recent name="com.abadisurio.cinematxt.ui.movies" />
+      <recent name="com.abadisurio.cinematxt.ui.home" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.abadisurio.cinematxt.data.source" />
+      <recent name="com.abadisurio.cinematxt.data" />
+      <recent name="com.abadisurio.cinematxt.ui.detail" />
+      <recent name="com.abadisurio.cinematxt.ui.tvshows" />
+      <recent name="com.abadisurio.cinematxt.ui.movies" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.abadisurio.cinematxt.data" />
+      <recent name="com.abadisurio.cinematxt.data.source.remote.response" />
+      <recent name="com.abadisurio.cinematxt.ui.detail.viewmodel" />
+      <recent name="com.example.cinematxt.ui.home" />
+      <recent name="com.example.cinematxt.data" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.abadisurio.cinematxt" />
+      <recent name="com.example.cinematxt" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/abadisurio/cinematxt/data/source/remote/response" />
+      <recent name="$PROJECT_DIR$/app/src/main/assets" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/example/cinematxt/ui/tvshows" />
+    </key>
+    <key name="android.template.-2025582098">
+      <recent name="com.abadisurio.cinematxt" />
+    </key>
+    <key name="android.template.-1134564378">
+      <recent name="com.example.cinematxt.ui.detail" />
+      <recent name="com.example.cinematxt.ui.home" />
+      <recent name="com.example.cinematxt.ui" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android Instrumented Tests.HomeActivityTest">
+    <configuration name="DetailViewModelTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CinemaTXT.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abadisurio.cinematxt.ui.detail.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.abadisurio.cinematxt.ui.detail" />
+      <option name="MAIN_CLASS_NAME" value="com.abadisurio.cinematxt.ui.detail.DetailViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com in CinemaTXT.app" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CinemaTXT.app" />
+      <option name="TEST_OBJECT" value="directory" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <dir value="$PROJECT_DIR$/app/src/test/java/com" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="CinemaTXT.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeActivityTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="CinemaTXT.app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="com.abadisurio.cinematxt.ui.home.HomeActivityTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests in 'com'" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="CinemaTXT.app" />
+      <option name="TESTING_TYPE" value="1" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DetailViewModelTestTVShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CinemaTXT.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abadisurio.cinematxt.ui.detail.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.abadisurio.cinematxt.ui.detail" />
+      <option name="MAIN_CLASS_NAME" value="com.abadisurio.cinematxt.ui.detail.DetailViewModelTestTVShow" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android Instrumented Tests.HomeActivityTest" />
+        <item itemvalue="Android JUnit.com in CinemaTXT.app" />
+        <item itemvalue="Android JUnit.DetailViewModelTest" />
+        <item itemvalue="Android Instrumented Tests.Tests in 'com'" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3a78b4f-e3a3-4dc3-bf2e-98fabd23a47f" name="Default Changelist" comment="" />
+      <created>1620152557443</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620152557443</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/app" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="978" y="413" width="431" height="566" key="#HTTP_Proxy" timestamp="1620195176679">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="978" y="413" width="431" height="566" key="#HTTP_Proxy/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620195176679" />
+    <state x="218" y="366" width="950" height="537" key="#PSD" timestamp="1620996861034">
+      <screen x="0" y="107" width="3286" height="1048" />
+    </state>
+    <state x="218" y="366" width="950" height="537" key="#PSD/0.107.3286.1048@0.107.3286.1048" timestamp="1620996861034" />
+    <state x="555" y="275" width="800" height="719" key="#Plugins" timestamp="1621172623337">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="555" y="275" width="800" height="719" key="#Plugins/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621172623337" />
+    <state x="746" y="550" width="386" height="273" key="#Updates" timestamp="1621171540243">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="746" y="550" width="386" height="273" key="#Updates/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621171540243" />
+    <state x="522" y="350" width="407" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1621161549151">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="522" y="350" width="407" height="576" key="#com.intellij.ide.util.MemberChooser/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621161549151" />
+    <state x="893" y="350" width="407" height="576" key="#com.intellij.ide.util.MemberChooser/0.107.3286.1048@0.107.3286.1048" timestamp="1621000147809" />
+    <state x="251" y="586" width="879" height="155" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1620995091549">
+      <screen x="0" y="107" width="3286" height="1048" />
+    </state>
+    <state x="283" y="557" width="879" height="155" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620154966696" />
+    <state x="251" y="586" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.107.3286.1048@0.107.3286.1048" timestamp="1620995091549" />
+    <state x="875" y="514" width="423" height="241" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1620995096806">
+      <screen x="0" y="107" width="3286" height="1048" />
+    </state>
+    <state x="511" y="514" width="423" height="241" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620154968347" />
+    <state x="875" y="514" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.107.3286.1048@0.107.3286.1048" timestamp="1620995096806" />
+    <state x="483" y="380" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1621245295339">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="483" y="380" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621245295339" />
+    <state x="827" y="380" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.107.3286.1048@0.107.3286.1048" timestamp="1621004798615" />
+    <state x="1270" y="422" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1621004840441">
+      <screen x="0" y="107" width="3286" height="1048" />
+    </state>
+    <state x="742" y="422" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620200203188" />
+    <state x="1270" y="422" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.107.3286.1048@0.107.3286.1048" timestamp="1621004840441" />
+    <state x="705" y="267" width="652" height="339" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1621267066995">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="705" y="267" width="652" height="339" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621267066995" />
+    <state x="100" y="207" width="1246" height="848" key="AVDManager" timestamp="1621185097992">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="100" y="207" width="1246" height="848" key="AVDManager/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621185097992" />
+    <state x="0" y="207" width="1920" height="848" key="AVDManager/0.107.3286.1048@0.107.3286.1048" timestamp="1620997216841" />
+    <state x="306" y="389" width="824" height="491" key="AndroidCreateResourceFileDialog" timestamp="1620198069370">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="306" y="389" width="824" height="491" key="AndroidCreateResourceFileDialog/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620198069370" />
+    <state x="591" y="423" width="309" height="422" key="AndroidCreateXmlResourceDialog" timestamp="1620371711904">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="591" y="423" width="309" height="422" key="AndroidCreateXmlResourceDialog/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620371711904" />
+    <state x="773" y="193" width="316" height="345" key="FileChooserDialogImpl" timestamp="1621269152970">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="773" y="193" width="424" height="491" key="FileChooserDialogImpl/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621269152970" />
+    <state x="904" y="389" key="FileChooserDialogImpl/0.107.3286.1048@0.107.3286.1048" timestamp="1621006708636" />
+    <state x="376" y="230" width="316" height="345" key="FileChooserDialogImpl/0.32.1366.736@0.32.1366.736" timestamp="1620991119086" />
+    <state x="529" y="314" width="424" height="491" key="FileChooserDialogImpl/0.32.1920.1048/1920.147.1366.768@0.32.1920.1048" timestamp="1620153497601" />
+    <state width="1874" height="278" key="GridCell.Tab.0.bottom" timestamp="1621572788236">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state width="1874" height="278" key="GridCell.Tab.0.bottom/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621572788236" />
+    <state width="1350" height="278" key="GridCell.Tab.0.bottom/0.107.3286.1048@0.107.3286.1048" timestamp="1621005285226" />
+    <state width="1874" height="278" key="GridCell.Tab.0.center" timestamp="1621572788236">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state width="1874" height="278" key="GridCell.Tab.0.center/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621572788236" />
+    <state width="1350" height="278" key="GridCell.Tab.0.center/0.107.3286.1048@0.107.3286.1048" timestamp="1621005285225" />
+    <state width="1874" height="278" key="GridCell.Tab.0.left" timestamp="1621572788235">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state width="1874" height="278" key="GridCell.Tab.0.left/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621572788235" />
+    <state width="1350" height="278" key="GridCell.Tab.0.left/0.107.3286.1048@0.107.3286.1048" timestamp="1621005285225" />
+    <state width="1874" height="278" key="GridCell.Tab.0.right" timestamp="1621572788236">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state width="1874" height="278" key="GridCell.Tab.0.right/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621572788236" />
+    <state width="1350" height="278" key="GridCell.Tab.0.right/0.107.3286.1048@0.107.3286.1048" timestamp="1621005285226" />
+    <state x="398" y="215" width="1022" height="737" key="SettingsEditor" timestamp="1621231996663">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="398" y="215" width="1022" height="737" key="SettingsEditor/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621231996663" />
+    <state x="103" y="265" key="SettingsEditor/0.107.3286.1048@0.107.3286.1048" timestamp="1620994704435" />
+    <state x="880" y="411" width="374" height="446" key="chooseDestDirectoryDialog" timestamp="1621004823913">
+      <screen x="0" y="107" width="3286" height="1048" />
+    </state>
+    <state x="514" y="411" width="374" height="446" key="chooseDestDirectoryDialog/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620371298071" />
+    <state x="880" y="411" width="374" height="446" key="chooseDestDirectoryDialog/0.107.3286.1048@0.107.3286.1048" timestamp="1621004823913" />
+    <state x="919" y="453" width="498" height="487" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1621004823927">
+      <screen x="0" y="107" width="3286" height="1048" />
+    </state>
+    <state x="537" y="453" width="490" height="362" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1620371298101" />
+    <state x="919" y="453" width="498" height="487" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.107.3286.1048@0.107.3286.1048" timestamp="1621004823927" />
+    <state x="413" y="291" key="run.anything.popup" timestamp="1621183655631">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="413" y="291" key="run.anything.popup/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621183655631" />
+    <state x="364" y="338" width="672" height="678" key="search.everywhere.popup" timestamp="1621154544641">
+      <screen x="0" y="107" width="1920" height="1048" />
+    </state>
+    <state x="364" y="338" width="672" height="678" key="search.everywhere.popup/0.107.1920.1048/1920.0.1366.768@0.107.1920.1048" timestamp="1621154544641" />
+    <state x="623" y="338" width="672" height="678" key="search.everywhere.popup/0.107.3286.1048@0.107.3286.1048" timestamp="1620999412064" />
+  </component>
+</project>

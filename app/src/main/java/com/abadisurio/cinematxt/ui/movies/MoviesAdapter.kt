@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.abadisurio.cinematxt.R
-import com.abadisurio.cinematxt.data.MovieEntity
+import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
 import com.abadisurio.cinematxt.databinding.ItemsRowBinding
 import com.abadisurio.cinematxt.ui.detail.DetailActivity
 import com.bumptech.glide.Glide

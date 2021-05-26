@@ -3,7 +3,7 @@ package com.abadisurio.cinematxt.ui.movies
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.abadisurio.cinematxt.data.MovieEntity
+import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
 import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import org.junit.Assert.*

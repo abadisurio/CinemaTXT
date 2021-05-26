@@ -56,8 +56,8 @@ class DetailActivity : AppCompatActivity() {
         if (extras != null) {
             val showId = extras.getString(EXTRA_SHOW)
             if (showId != null) {
-                viewModel.setSelectedShow(showId)
                 if (extras.getString(EXTRA_TYPE) == "Movie") {
+                    viewModel.setSelectedMovie(showId)
                     viewModel.getMovie().observe(this, { movie ->
                         detailEntity = DetailEntity(
                             movie.movieId,
@@ -69,6 +69,7 @@ class DetailActivity : AppCompatActivity() {
                         populateDetail(detailEntity)
                     })
                 } else {
+                    viewModel.setSelectedTVShow(showId)
                     viewModel.getTVShow().observe(this, { tvShow ->
                         detailEntity = DetailEntity(
                             tvShow.tvShowId,

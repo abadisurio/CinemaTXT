@@ -33,6 +33,9 @@ DetailViewModelTest
     * Memastikan text_description telah sesuai
     * Memverifikasi data dari observasi ViewModel
 
+ - CinemaTXTRepository
+    * Melakukan pengujian tiap ViewModel dan LiveData
+
 Instrumentation Test
 
 Mengimplementasikan Idle resource

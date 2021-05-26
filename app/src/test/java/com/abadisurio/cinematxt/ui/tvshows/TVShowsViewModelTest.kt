@@ -3,7 +3,7 @@ package com.abadisurio.cinematxt.ui.tvshows
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.abadisurio.cinematxt.data.TVShowEntity
+import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import org.junit.Assert.*
@@ -35,7 +35,7 @@ class TVShowsViewModelTest {
     }
 
     @Test
-    fun getCourses() {
+    fun getTVShow() {
 
         val dummyTVShows = DataDummy.generateDummyTVShows()
         val tvShows = MutableLiveData<List<TVShowEntity>>()

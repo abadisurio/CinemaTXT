@@ -1,9 +1,10 @@
 package com.abadisurio.cinematxt.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.abadisurio.cinematxt.data.source.CinemaTXTDataSource
+import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
+import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.source.remote.response.MovieResponse
 import com.abadisurio.cinematxt.data.source.remote.response.RemoteDataSource
 import com.abadisurio.cinematxt.data.source.remote.response.TVShowResponse
@@ -37,7 +38,6 @@ class FakeCinemaTXTRepository(private val remoteDataSource: RemoteDataSource) :
             override fun onAllMoviesReceived(movieResponses: List<MovieResponse>) {
                 for (response in movieResponses) {
                     if(response.movieId == movieId){
-                        Log.d("hehe", response.toString())
                         movie = MovieEntity(response.movieId,
                             response.title,
                             response.description,

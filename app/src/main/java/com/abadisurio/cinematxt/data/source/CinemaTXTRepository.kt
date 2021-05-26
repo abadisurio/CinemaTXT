@@ -3,10 +3,9 @@ package com.abadisurio.cinematxt.data.source
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.abadisurio.cinematxt.data.source.remote.response.ApiPopoularMoviesResponse
 import com.abadisurio.cinematxt.BuildConfig
-import com.abadisurio.cinematxt.data.MovieEntity
-import com.abadisurio.cinematxt.data.TVShowEntity
+import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
+import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.source.remote.response.*
 import com.abadisurio.cinematxt.utils.EspressoIdlingResource
 import retrofit2.Call
@@ -36,11 +35,11 @@ class CinemaTXTRepository private constructor(private val remoteDataSource: Remo
                         for (result in callback.results){
                             movieList.add(
                                 MovieEntity(
-                                        result.id.toString(),
-                                        result.originalTitle,
-                                        result.overview,
-                                        result.releaseDate,
-                                        BuildConfig.BASE_IMAGE_URL + result.posterPath,
+                                    result.id.toString(),
+                                    result.originalTitle,
+                                    result.overview,
+                                    result.releaseDate,
+                                    BuildConfig.BASE_IMAGE_URL + result.posterPath,
                                 )
                             )
                         }
@@ -94,13 +93,13 @@ class CinemaTXTRepository private constructor(private val remoteDataSource: Remo
                         Log.d("wkwk", callback.results.toString())
                         for (result in callback.results){
                             tvShowList.add(
-                                    TVShowEntity(
-                                            result.id.toString(),
-                                            result.name,
-                                            result.overview,
-                                            result.firstAirDate,
-                                            BuildConfig.BASE_IMAGE_URL + result.posterPath,
-                                    )
+                                TVShowEntity(
+                                    result.id.toString(),
+                                    result.name,
+                                    result.overview,
+                                    result.firstAirDate,
+                                    BuildConfig.BASE_IMAGE_URL + result.posterPath,
+                                )
                             )
                         }
                         tvShowResults.postValue(tvShowList)
@@ -124,11 +123,11 @@ class CinemaTXTRepository private constructor(private val remoteDataSource: Remo
                 if(response.isSuccessful)
                     response.body()?.let { callback ->
                         tvShow = TVShowEntity(
-                                callback.id.toString(),
-                                callback.originalName,
-                                callback.overview,
-                                callback.firstAirDate,
-                                BuildConfig.BASE_IMAGE_URL + callback.posterPath,
+                            callback.id.toString(),
+                            callback.originalName,
+                            callback.overview,
+                            callback.firstAirDate,
+                            BuildConfig.BASE_IMAGE_URL + callback.posterPath,
                         )
                     }
                 tvShowDetailResults.postValue(tvShow)

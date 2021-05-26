@@ -2,6 +2,7 @@ package com.abadisurio.cinematxt.data.source.remote.response
 
 import android.os.Handler
 import android.os.Looper
+// sengaja dikomen buat dipake nanti oke ;)
 import com.abadisurio.cinematxt.data.source.remote.ApiService
 import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.API_KEY
 import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.BASE_URL
@@ -30,7 +31,6 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
                 instance ?: RemoteDataSource(helper).apply { instance = this }
             }
     }
-
     private fun getApiService(): ApiService {
         val loggingInterceptor =
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -60,6 +60,7 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
         }, SERVICE_LATENCY_IN_MILLIS)
     }
 
+//    sengaja dikomen buat dipake nanti oke ;)
     fun getPopularMovies():Call<ApiPopoularMoviesResponse> = getApiService().getPopularMovies(API_KEY, LANGUAGE_PREF, PAGE)
     fun getDetailMovie(showId: String):Call<ApiDetailMovieResponse> = getApiService().getDetailMovie(showId, API_KEY, LANGUAGE_PREF, PAGE)
     fun getPopularTVShows():Call<ApiPopoularTVShowsResponse> = getApiService().getPopularTVShows(API_KEY, LANGUAGE_PREF, PAGE)

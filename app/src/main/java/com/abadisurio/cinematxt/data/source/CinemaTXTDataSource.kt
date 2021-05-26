@@ -1,8 +1,8 @@
 package com.abadisurio.cinematxt.data.source
 
 import androidx.lifecycle.LiveData
-import com.abadisurio.cinematxt.data.MovieEntity
-import com.abadisurio.cinematxt.data.TVShowEntity
+import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
+import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 
 interface CinemaTXTDataSource {
 

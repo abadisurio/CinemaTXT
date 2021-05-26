@@ -3,8 +3,8 @@ package com.abadisurio.cinematxt.ui.detail
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.abadisurio.cinematxt.data.MovieEntity
-import com.abadisurio.cinematxt.data.TVShowEntity
+import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
+import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import org.junit.Assert.*
@@ -40,7 +40,8 @@ class DetailViewModelTest {
     @Before
     fun moviesSetUp() {
         viewModel = DetailViewModel(cinemaTXTRepository)
-        viewModel.setSelectedShow(movieId)
+        viewModel.setSelectedMovie(movieId)
+        viewModel.setSelectedTVShow(tvShowId)
     }
 
     @Test
@@ -63,13 +64,6 @@ class DetailViewModelTest {
         verify(movieObserver).onChanged(dummyMovie)
 
     }
-
-    @Before
-    fun tvShowSetUp() {
-        viewModel = DetailViewModel(cinemaTXTRepository)
-        viewModel.setSelectedShow(tvShowId)
-    }
-
     @Test
     fun getTVShow() {
         val tvShow = MutableLiveData<TVShowEntity>()
