@@ -3,7 +3,7 @@ package com.abadisurio.cinematxt.viewmodel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
+import com.abadisurio.cinematxt.data.CinemaTXTRepository
 import com.abadisurio.cinematxt.ui.movies.MoviesViewModel
 import com.abadisurio.cinematxt.di.Injection
 import com.abadisurio.cinematxt.ui.detail.DetailViewModel

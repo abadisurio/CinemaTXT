@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abadisurio.cinematxt.databinding.FragmentMoviesBinding
 import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
+import com.abadisurio.cinematxt.vo.Status
 
 class MoviesFragment : Fragment() {
 
@@ -27,17 +29,26 @@ class MoviesFragment : Fragment() {
 
             val moviesAdapter = MoviesAdapter()
 
-            fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
             viewModel.getMovies().observe(viewLifecycleOwner, {movies ->
-                fragmentMoviesBinding.progressBar.visibility = View.GONE
-                moviesAdapter.setMovies(movies)
-                moviesAdapter.notifyDataSetChanged()
+                if(movies != null){
+                    when(movies.status){
+                        Status.LOADING -> fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
+                        Status.SUCCESS -> {
+                            fragmentMoviesBinding.progressBar.visibility = View.GONE
+                            moviesAdapter.setMovies(movies.data)
+                            moviesAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            fragmentMoviesBinding.progressBar.visibility = View.GONE
+                            Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             })
 
             with(fragmentMoviesBinding.rvMovies) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
-//                Log.d("movie: ", moviesAdapter.toString())
                 adapter = moviesAdapter
             }
         }

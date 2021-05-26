@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.abadisurio.cinematxt.R
 import com.abadisurio.cinematxt.databinding.ActivityDetailBinding
 import com.abadisurio.cinematxt.databinding.ContentDetailBinding
 import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
+import com.abadisurio.cinematxt.vo.Status
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -58,27 +60,55 @@ class DetailActivity : AppCompatActivity() {
             if (showId != null) {
                 if (extras.getString(EXTRA_TYPE) == "Movie") {
                     viewModel.setSelectedMovie(showId)
-                    viewModel.getMovie().observe(this, { movie ->
-                        detailEntity = DetailEntity(
-                            movie.movieId,
-                            movie.title,
-                            movie.description,
-                            movie.releaseDate,
-                            movie.imagePath
-                        )
-                        populateDetail(detailEntity)
+                    viewModel.detailMovie.observe(this, { movieWithModuleResource ->
+                        if (movieWithModuleResource != null) {
+                            val data = movieWithModuleResource.data
+                            when (movieWithModuleResource.status) {
+                                Status.LOADING -> activityDetailBinding.progressBar.visibility = View.VISIBLE
+                                Status.SUCCESS -> if (data != null) {
+                                    activityDetailBinding.progressBar.visibility = View.GONE
+                                    activityDetailBinding.content.visibility = View.VISIBLE
+                                    detailEntity = DetailEntity(
+                                        data.movieId,
+                                        data.title,
+                                        data.description,
+                                        data.releaseDate,
+                                        data.imagePath
+                                    )
+                                    populateDetail(detailEntity)
+                                }
+                                Status.ERROR -> {
+                                    activityDetailBinding.progressBar.visibility = View.GONE
+                                    Toast.makeText(applicationContext, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
                     })
                 } else {
                     viewModel.setSelectedTVShow(showId)
-                    viewModel.getTVShow().observe(this, { tvShow ->
-                        detailEntity = DetailEntity(
-                            tvShow.tvShowId,
-                            tvShow.title,
-                            tvShow.description,
-                            tvShow.releaseDate,
-                            tvShow.imagePath
-                        )
-                        populateDetail(detailEntity)
+                    viewModel.detailTVShow.observe(this, { tvShowWithModuleResource ->
+                        if (tvShowWithModuleResource != null) {
+                            val data = tvShowWithModuleResource.data
+                            when (tvShowWithModuleResource.status) {
+                                Status.LOADING -> activityDetailBinding.progressBar.visibility = View.VISIBLE
+                                Status.SUCCESS -> if (data != null) {
+                                    activityDetailBinding.progressBar.visibility = View.GONE
+                                    activityDetailBinding.content.visibility = View.VISIBLE
+                                    detailEntity = DetailEntity(
+                                        data.tvShowId,
+                                        data.title,
+                                        data.description,
+                                        data.releaseDate,
+                                        data.imagePath
+                                    )
+                                    populateDetail(detailEntity)
+                                }
+                                Status.ERROR -> {
+                                    activityDetailBinding.progressBar.visibility = View.GONE
+                                    Toast.makeText(applicationContext, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
                     })
                 }
             }
