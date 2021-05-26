@@ -1,4 +1,4 @@
-package com.abadisurio.cinematxt.data
+package com.abadisurio.cinematxt.data.source.local.entity
 
 data class MovieEntity(
     var movieId: String,
