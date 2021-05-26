@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
 import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
-import com.abadisurio.cinematxt.data.source.CinemaTXTRepository
+import com.abadisurio.cinematxt.data.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import org.junit.Assert.*
 import org.junit.Before

@@ -2,7 +2,6 @@ package com.abadisurio.cinematxt.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.abadisurio.cinematxt.data.source.CinemaTXTDataSource
 import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
 import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.source.remote.response.MovieResponse
