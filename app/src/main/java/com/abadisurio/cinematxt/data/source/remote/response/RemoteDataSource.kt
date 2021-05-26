@@ -2,6 +2,9 @@ package com.abadisurio.cinematxt.data.source.remote.response
 
 import android.os.Handler
 import android.os.Looper
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.abadisurio.cinematxt.data.source.remote.ApiResponse
 // sengaja dikomen buat dipake nanti oke ;)
 import com.abadisurio.cinematxt.data.source.remote.ApiService
 import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.API_KEY
@@ -45,26 +48,56 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
         return retrofit.create(ApiService::class.java)
     }
 
-    fun getAllMovies(callback: LoadMoviesCallback){
+    fun getAllMovies(): LiveData<ApiResponse<List<MovieResponse>>>{
         EspressoIdlingResource.increment()
+        val resultMovies = MutableLiveData<ApiResponse<List<MovieResponse>>>()
         handler.postDelayed({
-            callback.onAllMoviesReceived(jsonHelper.loadMovies())
+            resultMovies.value = ApiResponse.success(jsonHelper.loadMovies())
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return resultMovies
     }
-    fun getAllTVShows(callback: LoadTVShowsCallback) {
+    fun getAllTVShows(): LiveData<ApiResponse<List<TVShowResponse>>> {
         EspressoIdlingResource.increment()
+        val resultTVShows = MutableLiveData<ApiResponse<List<TVShowResponse>>>()
         handler.postDelayed({
-            callback.onAllTVShowsReceived(jsonHelper.loadTVShows())
+            resultTVShows.value = ApiResponse.success(jsonHelper.loadTVShows())
             EspressoIdlingResource.decrement()
         }, SERVICE_LATENCY_IN_MILLIS)
+        return resultTVShows
     }
 
-//    sengaja dikomen buat dipake nanti oke ;)
-    fun getPopularMovies():Call<ApiPopoularMoviesResponse> = getApiService().getPopularMovies(API_KEY, LANGUAGE_PREF, PAGE)
-    fun getDetailMovie(showId: String):Call<ApiDetailMovieResponse> = getApiService().getDetailMovie(showId, API_KEY, LANGUAGE_PREF, PAGE)
-    fun getPopularTVShows():Call<ApiPopoularTVShowsResponse> = getApiService().getPopularTVShows(API_KEY, LANGUAGE_PREF, PAGE)
-    fun getDetailTVShow(showId: String):Call<ApiDetailTVShowResponse> = getApiService().getDetailTVShow(showId, API_KEY, LANGUAGE_PREF, PAGE)
+//    fun getPopularMovies():Call<ApiPopoularMoviesResponse> = getApiService().getPopularMovies(API_KEY, LANGUAGE_PREF, PAGE)
+//    fun getDetailMovie(showId: String):Call<ApiDetailMovieResponse> = getApiService().getDetailMovie(showId, API_KEY, LANGUAGE_PREF, PAGE)
+    fun getDetailMovie(filmId: String): LiveData<ApiResponse<List<MovieResponse>>> {
+        EspressoIdlingResource.increment()
+        val resultMovie = MutableLiveData<ApiResponse<List<MovieResponse>>>()
+        handler.postDelayed({
+            resultMovie.value = ApiResponse.success(jsonHelper.loadDetailMovies(filmId))
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
+        return resultMovie
+    }
+    fun getPopularTVShows(): LiveData<ApiResponse<List<TVShowResponse>>>{
+        EspressoIdlingResource.increment()
+        val resultTVShows = MutableLiveData<ApiResponse<List<TVShowResponse>>>()
+        handler.postDelayed({
+            resultTVShows.value = ApiResponse.success(jsonHelper.loadTVShows())
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
+        return resultTVShows
+    }
+
+//    fun getPopularTVShows():Call<ApiPopoularTVShowsResponse> = getApiService().getPopularTVShows(API_KEY, LANGUAGE_PREF, PAGE)
+    fun getDetailTVShow(tvShowId: String): LiveData<ApiResponse<List<TVShowResponse>>> {
+        EspressoIdlingResource.increment()
+        val resultTVShow = MutableLiveData<ApiResponse<List<TVShowResponse>>>()
+        handler.postDelayed({
+            resultTVShow.value = ApiResponse.success(jsonHelper.loadDetailTVShows(tvShowId))
+            EspressoIdlingResource.decrement()
+        }, SERVICE_LATENCY_IN_MILLIS)
+        return resultTVShow
+    }
 
     interface LoadMoviesCallback {
         fun onAllMoviesReceived(movieResponse: List<MovieResponse>)

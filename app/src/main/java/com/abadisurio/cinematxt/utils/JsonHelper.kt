@@ -29,16 +29,16 @@ class JsonHelper(private val context: Context) {
             val responseObject = JSONObject(parsingFileToString("TVShowResponses.json").toString())
             val listArray = responseObject.getJSONArray("tvShows")
             for (i in 0 until listArray.length()) {
-                val course = listArray.getJSONObject(i)
+                val tvShow = listArray.getJSONObject(i)
 
-                val id = course.getString("id")
-                val title = course.getString("title")
-                val description = course.getString("description")
-                val releaseDate = course.getString("date")
-                val imagePath = course.getString("imagePath")
+                val id = tvShow.getString("id")
+                val title = tvShow.getString("title")
+                val description = tvShow.getString("description")
+                val releaseDate = tvShow.getString("date")
+                val imagePath = tvShow.getString("imagePath")
 
-                val courseResponse = TVShowResponse(id, title, description, releaseDate, imagePath)
-                list.add(courseResponse)
+                val tvShowResponse = TVShowResponse(id, title, description, releaseDate, imagePath)
+                list.add(tvShowResponse)
             }
         } catch (e: JSONException) {
             e.printStackTrace()
@@ -53,16 +53,16 @@ class JsonHelper(private val context: Context) {
             val responseObject = JSONObject(parsingFileToString("MovieResponses.json").toString())
             val listArray = responseObject.getJSONArray("movies")
             for (i in 0 until listArray.length()) {
-                val course = listArray.getJSONObject(i)
+                val movie = listArray.getJSONObject(i)
 
-                val id = course.getString("id")
-                val title = course.getString("title")
-                val description = course.getString("description")
-                val releaseDate = course.getString("date")
-                val imagePath = course.getString("imagePath")
+                val id = movie.getString("id")
+                val title = movie.getString("title")
+                val description = movie.getString("description")
+                val releaseDate = movie.getString("date")
+                val imagePath = movie.getString("imagePath")
 
-                val courseResponse = MovieResponse(id, title, description, releaseDate, imagePath)
-                list.add(courseResponse)
+                val movieResponse = MovieResponse(id, title, description, releaseDate, imagePath)
+                list.add(movieResponse)
             }
         } catch (e: JSONException) {
             e.printStackTrace()
@@ -70,4 +70,59 @@ class JsonHelper(private val context: Context) {
 
         return list
     }
+
+    fun loadDetailMovies(filmId: String): List<MovieResponse> {
+        val fileName = String.format("MovieResponses.json", filmId)
+        val list = ArrayList<MovieResponse>()
+        try {
+            val result = parsingFileToString(fileName)
+            if (result != null) {
+                val responseObject = JSONObject(result)
+                val listArray = responseObject.getJSONArray("movies")
+                for (i in 0 until listArray.length()) {
+                    val movie = listArray.getJSONObject(i)
+
+                    val id = movie.getString("id")
+                    val title = movie.getString("title")
+                    val description = movie.getString("description")
+                    val releaseDate = movie.getString("date")
+                    val imagePath = movie.getString("imagePath")
+
+                    val movieResponse = MovieResponse(id, title, description, releaseDate, imagePath)
+                    list.add(movieResponse)
+                }
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        return list
+    }
+
+    fun loadDetailTVShows(filmId: String): List<TVShowResponse> {
+        val fileName = String.format("TVShowResponses.json", filmId)
+        val list = ArrayList<TVShowResponse>()
+        try {
+            val result = parsingFileToString(fileName)
+            if (result != null) {
+                val responseObject = JSONObject(result)
+                val listArray = responseObject.getJSONArray("tvShows")
+                for (i in 0 until listArray.length()) {
+                    val tvShow = listArray.getJSONObject(i)
+
+                    val id = tvShow.getString("id")
+                    val title = tvShow.getString("title")
+                    val description = tvShow.getString("description")
+                    val releaseDate = tvShow.getString("date")
+                    val imagePath = tvShow.getString("imagePath")
+
+                    val tvShowResponse = TVShowResponse(id, title, description, releaseDate, imagePath)
+                    list.add(tvShowResponse)
+                }
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        return list
+    }
+
 }
