@@ -8,4 +8,5 @@ import com.abadisurio.cinematxt.vo.Resource
 
 class MoviesViewModel(private val cinemaTXTRepository: CinemaTXTRepository): ViewModel() {
     fun getMovies(): LiveData<Resource<List<MovieEntity>>> = cinemaTXTRepository.getAllMovies()
+//    fun getBookmarkMovies(): LiveData<Resource<List<MovieEntity>>> = cinemaTXTRepository.getBookmarkedMovies()
 }

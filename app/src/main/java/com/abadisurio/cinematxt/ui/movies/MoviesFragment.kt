@@ -1,6 +1,7 @@
 package com.abadisurio.cinematxt.ui.movies
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abadisurio.cinematxt.databinding.FragmentMoviesBinding
+import com.abadisurio.cinematxt.ui.bookmark.BookmarkActivity
 import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
 import com.abadisurio.cinematxt.vo.Status
 
@@ -24,10 +26,15 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
+//            Log.d("punya siapa",( requireActivity()::class.simpleName ).toString())
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[MoviesViewModel::class.java]
 
             val moviesAdapter = MoviesAdapter()
+
+//            val selectedViewModel = if(requireActivity()::class.simpleName == "BookmarkActivity"){
+//                return viewModel.
+//            }
 
             viewModel.getMovies().observe(viewLifecycleOwner, {movies ->
                 if(movies != null){

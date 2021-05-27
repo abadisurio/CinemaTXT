@@ -26,7 +26,7 @@ class HomeActivityTest {
 
     @Before
     fun setUp() {
-        ActivityScenario.launch(HomeActivity::class.java)
+        ActivityScenario.launch(BookmarkActivity::class.java)
         IdlingRegistry.getInstance().register(EspressoIdlingResource.idlingResource)
     }
 
@@ -36,7 +36,7 @@ class HomeActivityTest {
     }
 
     @get:Rule
-    var activityRule = ActivityScenarioRule(HomeActivity::class.java)
+    var activityRule = ActivityScenarioRule(BookmarkActivity::class.java)
 
     @Test
     fun loadMovies() {

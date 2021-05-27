@@ -11,6 +11,7 @@ import com.abadisurio.cinematxt.data.source.remote.ApiResponse
 import com.abadisurio.cinematxt.data.source.remote.response.*
 import com.abadisurio.cinematxt.utils.AppExecutors
 import com.abadisurio.cinematxt.vo.Resource
+import androidx.paging.PagedList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

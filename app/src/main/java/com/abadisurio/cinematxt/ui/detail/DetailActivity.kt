@@ -3,6 +3,8 @@ package com.abadisurio.cinematxt.ui.detail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +22,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var activityDetailBinding: ActivityDetailBinding
     private lateinit var contentDetailBinding: ContentDetailBinding
     private lateinit var detailEntity: DetailEntity
+    private lateinit var viewModel: DetailViewModel
     private var showTitle: String = "film"
 
     companion object {
@@ -51,7 +54,7 @@ class DetailActivity : AppCompatActivity() {
         }
 
         val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+        viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
         val extras = intent.extras
 
 
@@ -73,7 +76,8 @@ class DetailActivity : AppCompatActivity() {
                                         data.title,
                                         data.description,
                                         data.releaseDate,
-                                        data.imagePath
+                                        data.imagePath,
+                                        data.favorited
                                     )
                                     populateDetail(detailEntity)
                                 }
@@ -99,7 +103,8 @@ class DetailActivity : AppCompatActivity() {
                                         data.title,
                                         data.description,
                                         data.releaseDate,
-                                        data.imagePath
+                                        data.imagePath,
+                                        data.favorited
                                     )
                                     populateDetail(detailEntity)
                                 }
@@ -136,11 +141,16 @@ class DetailActivity : AppCompatActivity() {
 
         glide.into(contentDetailBinding.imagePoster)
         glide.into(activityDetailBinding.imagePoster2)
+        setBookmarkState(detailEntity.favorited)
         loadSuccess()
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    private fun setBookmarkState(state: Boolean) {
+        activityDetailBinding.favFab.isSelected = state
     }
 }
 
@@ -149,5 +159,7 @@ data class DetailEntity(
     var title: String,
     var description: String,
     var releaseDate: String,
-    var imagePath: String
+    var imagePath: String,
+    var favorited: Boolean
+
 )
