@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.abadisurio.cinematxt.data.CinemaTXTRepository
 import com.abadisurio.cinematxt.ui.movies.MoviesViewModel
+import com.abadisurio.cinematxt.ui.tvshows.TVShowsViewModel
+import com.abadisurio.cinematxt.ui.bookmarkmovies.BookmarkMoviesViewModel
+import com.abadisurio.cinematxt.ui.bookmarktvshows.BookmarkTVShowsViewModel
 import com.abadisurio.cinematxt.di.Injection
 import com.abadisurio.cinematxt.ui.detail.DetailViewModel
-import com.abadisurio.cinematxt.ui.tvshows.TVShowsViewModel
 
 class ViewModelFactory private constructor(private val mShowRepository: CinemaTXTRepository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -31,6 +33,12 @@ class ViewModelFactory private constructor(private val mShowRepository: CinemaTX
             }
             modelClass.isAssignableFrom(TVShowsViewModel::class.java) -> {
                 TVShowsViewModel(mShowRepository) as T
+            }
+            modelClass.isAssignableFrom(BookmarkMoviesViewModel::class.java) -> {
+                BookmarkMoviesViewModel(mShowRepository) as T
+            }
+            modelClass.isAssignableFrom(BookmarkTVShowsViewModel::class.java) -> {
+                BookmarkTVShowsViewModel(mShowRepository) as T
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(mShowRepository) as T

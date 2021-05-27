@@ -31,9 +31,9 @@ class CinemaTXTRepositoryTest {
             (invocation.arguments[0] as RemoteDataSource.LoadMoviesCallback)
                 .onAllMoviesReceived(movieResponses)
             null
-        }.`when`(remote).getAllMovies(any())
+        }.`when`(remote).getAllMovies()
         val movieEntities = LiveDataTestUtil.getValue(cinemaRepository.getAllMovies())
-        verify(remote).getAllMovies(any())
+        verify(remote).getAllMovies()
         assertNotNull(movieEntities)
         assertEquals(movieResponses.size.toLong(), movieEntities.size.toLong())
     }
@@ -43,9 +43,9 @@ class CinemaTXTRepositoryTest {
             (invocation.arguments[0] as RemoteDataSource.LoadTVShowsCallback)
                 .onAllTVShowsReceived(tvShowResponses)
             null
-        }.`when`(remote).getAllTVShows(any())
+        }.`when`(remote).getAllTVShows()
         val tvShowEntities = LiveDataTestUtil.getValue(cinemaRepository.getAllTVShows())
-        verify(remote).getAllTVShows(any())
+        verify(remote).getAllTVShows()
         assertNotNull(tvShowEntities)
         assertEquals(tvShowResponses.size.toLong(), tvShowEntities.size.toLong())
     }
@@ -55,11 +55,11 @@ class CinemaTXTRepositoryTest {
             (invocation.arguments[0] as RemoteDataSource.LoadMoviesCallback)
                 .onAllMoviesReceived(movieResponses)
             null
-        }.`when`(remote).getAllMovies(any())
+        }.`when`(remote).getAllMovies()
 
         val movieEntities = LiveDataTestUtil.getValue(cinemaRepository.getDetailMovie(dummyMovie.movieId))
 
-        verify(remote).getAllMovies(any())
+        verify(remote).getAllMovies()
 
         assertNotNull(movieEntities)
         assertNotNull(movieEntities.title)
@@ -70,11 +70,11 @@ class CinemaTXTRepositoryTest {
             (invocation.arguments[0] as RemoteDataSource.LoadTVShowsCallback)
                 .onAllTVShowsReceived(tvShowResponses)
             null
-        }.`when`(remote).getAllTVShows(any())
+        }.`when`(remote).getAllTVShows()
 
         val tvShowEntities = LiveDataTestUtil.getValue(cinemaRepository.getDetailTVShow(dummyTVShow.tvShowId))
 
-        verify(remote).getAllTVShows(any())
+        verify(remote).getAllTVShows()
 
         assertNotNull(tvShowEntities)
         assertNotNull(tvShowEntities.title)

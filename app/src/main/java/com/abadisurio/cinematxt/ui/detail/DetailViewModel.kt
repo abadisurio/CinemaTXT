@@ -25,7 +25,7 @@ class DetailViewModel(private val cinemaTXTRepository: CinemaTXTRepository): Vie
     var detailMovie: LiveData<Resource<MovieEntity>> = Transformations.switchMap(movieId){movieId->
         cinemaTXTRepository.getDetailMovie(movieId)
     }
-    var detailTVShow: LiveData<Resource<TVShowEntity>> = Transformations.switchMap(movieId){tvShowId->
+    var detailTVShow: LiveData<Resource<TVShowEntity>> = Transformations.switchMap(tvShowId){tvShowId->
         cinemaTXTRepository.getDetailTVShow(tvShowId)
     }
 

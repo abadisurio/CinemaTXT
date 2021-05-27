@@ -5,14 +5,12 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.widget.Toolbar
 import com.abadisurio.cinematxt.R
 import com.abadisurio.cinematxt.databinding.ActivityHomeBinding
 import com.abadisurio.cinematxt.ui.bookmark.BookmarkActivity
 
 class HomeActivity : AppCompatActivity() {
-    private var menu: Menu? = null
     private var toolbar: Toolbar? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,4 +1,4 @@
-package com.abadisurio.cinematxt.ui.tvshows
+package com.abadisurio.cinematxt.ui.bookmarktvshows
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import com.abadisurio.cinematxt.ui.detail.DetailActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class TVShowsAdapter : PagedListAdapter<TVShowEntity, TVShowsAdapter.TVShowsViewHolder>(DIFF_CALLBACK) {
+class BookmarkTVShowsAdapter : PagedListAdapter<TVShowEntity, BookmarkTVShowsAdapter.TVShowsViewHolder>(DIFF_CALLBACK) {
     private var listTVShows = ArrayList<TVShowEntity>()
 
     companion object {
@@ -46,7 +46,6 @@ class TVShowsAdapter : PagedListAdapter<TVShowEntity, TVShowsAdapter.TVShowsView
     }
 
     override fun getItemCount(): Int = listTVShows.size
-
 
     class TVShowsViewHolder(private val binding: ItemsRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(tvShow: TVShowEntity) {

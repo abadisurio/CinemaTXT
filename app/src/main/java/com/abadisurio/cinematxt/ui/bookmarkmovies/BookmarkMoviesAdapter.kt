@@ -1,4 +1,4 @@
-package com.abadisurio.cinematxt.ui.movies
+package com.abadisurio.cinematxt.ui.bookmarkmovies
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import com.abadisurio.cinematxt.ui.detail.DetailActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class MoviesAdapter : PagedListAdapter<MovieEntity, MoviesAdapter.MoviesViewHolder>(DIFF_CALLBACK) {
+class BookmarkMoviesAdapter : PagedListAdapter<MovieEntity, BookmarkMoviesAdapter.MoviesViewHolder>(DIFF_CALLBACK) {
     private var listMovies = ArrayList<MovieEntity>()
 
     companion object {
@@ -40,14 +40,13 @@ class MoviesAdapter : PagedListAdapter<MovieEntity, MoviesAdapter.MoviesViewHold
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        val movies = getItem(position)
-        if (movies != null) {
-            holder.bind(movies)
+        val movie = getItem(position)
+        if (movie != null) {
+            holder.bind(movie)
         }
     }
 
     override fun getItemCount(): Int = listMovies.size
-
 
     class MoviesViewHolder(private val binding: ItemsRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: MovieEntity) {

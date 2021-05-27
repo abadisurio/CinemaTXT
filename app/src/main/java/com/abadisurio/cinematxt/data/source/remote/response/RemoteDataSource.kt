@@ -5,19 +5,8 @@ import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.abadisurio.cinematxt.data.source.remote.ApiResponse
-// sengaja dikomen buat dipake nanti oke ;)
-import com.abadisurio.cinematxt.data.source.remote.ApiService
-import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.API_KEY
-import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.BASE_URL
-import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.LANGUAGE_PREF
-import com.abadisurio.cinematxt.data.source.remote.ApiService.Companion.PAGE
 import com.abadisurio.cinematxt.utils.EspressoIdlingResource
 import com.abadisurio.cinematxt.utils.JsonHelper
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
 
@@ -33,19 +22,6 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
             instance ?: synchronized(this) {
                 instance ?: RemoteDataSource(helper).apply { instance = this }
             }
-    }
-    private fun getApiService(): ApiService {
-        val loggingInterceptor =
-                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        val client = OkHttpClient.Builder()
-                .addInterceptor(loggingInterceptor)
-                .build()
-        val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build()
-        return retrofit.create(ApiService::class.java)
     }
 
     fun getAllMovies(): LiveData<ApiResponse<List<MovieResponse>>>{
@@ -67,8 +43,6 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
         return resultTVShows
     }
 
-//    fun getPopularMovies():Call<ApiPopoularMoviesResponse> = getApiService().getPopularMovies(API_KEY, LANGUAGE_PREF, PAGE)
-//    fun getDetailMovie(showId: String):Call<ApiDetailMovieResponse> = getApiService().getDetailMovie(showId, API_KEY, LANGUAGE_PREF, PAGE)
     fun getDetailMovie(filmId: String): LiveData<ApiResponse<List<MovieResponse>>> {
         EspressoIdlingResource.increment()
         val resultMovie = MutableLiveData<ApiResponse<List<MovieResponse>>>()
@@ -78,17 +52,7 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
         }, SERVICE_LATENCY_IN_MILLIS)
         return resultMovie
     }
-    fun getPopularTVShows(): LiveData<ApiResponse<List<TVShowResponse>>>{
-        EspressoIdlingResource.increment()
-        val resultTVShows = MutableLiveData<ApiResponse<List<TVShowResponse>>>()
-        handler.postDelayed({
-            resultTVShows.value = ApiResponse.success(jsonHelper.loadTVShows())
-            EspressoIdlingResource.decrement()
-        }, SERVICE_LATENCY_IN_MILLIS)
-        return resultTVShows
-    }
 
-//    fun getPopularTVShows():Call<ApiPopoularTVShowsResponse> = getApiService().getPopularTVShows(API_KEY, LANGUAGE_PREF, PAGE)
     fun getDetailTVShow(tvShowId: String): LiveData<ApiResponse<List<TVShowResponse>>> {
         EspressoIdlingResource.increment()
         val resultTVShow = MutableLiveData<ApiResponse<List<TVShowResponse>>>()

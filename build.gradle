@@ -43,5 +43,6 @@ ext {
     mockitoVersion = '3.6.0'
     mockitoKotlinVersion = '2.2.0'
     roomVersion = '2.2.3'
-    roomRuntimeVersion = '2.2.5'
+    roomRuntimeVersion = '2.3.0'
+    pagingVersion = '3.0.0'
 }

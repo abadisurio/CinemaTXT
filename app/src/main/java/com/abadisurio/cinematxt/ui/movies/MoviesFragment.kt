@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abadisurio.cinematxt.databinding.FragmentMoviesBinding
-import com.abadisurio.cinematxt.ui.bookmark.BookmarkActivity
 import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
 import com.abadisurio.cinematxt.vo.Status
 
@@ -36,6 +35,7 @@ class MoviesFragment : Fragment() {
 //                return viewModel.
 //            }
 
+            Log.d("udah selesai", "moviefragmnet")
             viewModel.getMovies().observe(viewLifecycleOwner, {movies ->
                 if(movies != null){
                     when(movies.status){
@@ -44,6 +44,7 @@ class MoviesFragment : Fragment() {
                             fragmentMoviesBinding.progressBar.visibility = View.GONE
                             moviesAdapter.setMovies(movies.data)
                             moviesAdapter.notifyDataSetChanged()
+                            moviesAdapter.submitList(movies.data)
                         }
                         Status.ERROR -> {
                             fragmentMoviesBinding.progressBar.visibility = View.GONE

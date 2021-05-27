@@ -1,20 +1,20 @@
-package com.abadisurio.cinematxt.ui.tvshows
+package com.abadisurio.cinematxt.ui.bookmarktvshows
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abadisurio.cinematxt.databinding.FragmentTVShowsBinding
 import com.abadisurio.cinematxt.viewmodel.ViewModelFactory
-import com.abadisurio.cinematxt.vo.Status
 
-class TVShowsFragment : Fragment() {
+class BookmarkTVShowsFragment : Fragment() {
 
     private lateinit var fragmentTVShowsBinding: FragmentTVShowsBinding
+    private lateinit var tvshowsAdapter: BookmarkTVShowsAdapter
+    private lateinit var viewModel: BookmarkTVShowsViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         fragmentTVShowsBinding = FragmentTVShowsBinding.inflate(layoutInflater, container, false)
@@ -23,27 +23,19 @@ class TVShowsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         if (activity != null) {
             val factory = ViewModelFactory.getInstance(requireActivity())
-            val viewModel = ViewModelProvider(this, factory)[TVShowsViewModel::class.java]
+            viewModel = ViewModelProvider(this, factory)[BookmarkTVShowsViewModel::class.java]
 
-            val tvshowsAdapter = TVShowsAdapter()
+            tvshowsAdapter = BookmarkTVShowsAdapter()
 
-            viewModel.getTVShows().observe(viewLifecycleOwner, {tvShows ->
+            viewModel.getBookmarkTVShows().observe(viewLifecycleOwner, {tvShows ->
                 if(tvShows != null){
-                    when(tvShows.status){
-                        Status.LOADING -> fragmentTVShowsBinding.progressBar.visibility = View.VISIBLE
-                        Status.SUCCESS -> {
-                            fragmentTVShowsBinding.progressBar.visibility = View.GONE
-                            tvshowsAdapter.setTVShows(tvShows.data)
-                            tvshowsAdapter.notifyDataSetChanged()
-                            tvshowsAdapter.submitList(tvShows.data)
-                        }
-                        Status.ERROR -> {
-                            fragmentTVShowsBinding.progressBar.visibility = View.GONE
-                            Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+                    fragmentTVShowsBinding.progressBar.visibility = View.GONE
+                    tvshowsAdapter.setTVShows(tvShows)
+                    tvshowsAdapter.notifyDataSetChanged()
+                    tvshowsAdapter.submitList(tvShows)
                 }
             })
 

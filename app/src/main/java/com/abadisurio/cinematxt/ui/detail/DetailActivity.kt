@@ -3,8 +3,6 @@ package com.abadisurio.cinematxt.ui.detail
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -79,6 +77,9 @@ class DetailActivity : AppCompatActivity() {
                                         data.imagePath,
                                         data.favorited
                                     )
+                                    activityDetailBinding.favFab.setOnClickListener {
+                                        viewModel.setBookmarkMovie()
+                                    }
                                     populateDetail(detailEntity)
                                 }
                                 Status.ERROR -> {
@@ -106,6 +107,9 @@ class DetailActivity : AppCompatActivity() {
                                         data.imagePath,
                                         data.favorited
                                     )
+                                    activityDetailBinding.favFab.setOnClickListener {
+                                        viewModel.setBookmarkTVShow()
+                                    }
                                     populateDetail(detailEntity)
                                 }
                                 Status.ERROR -> {

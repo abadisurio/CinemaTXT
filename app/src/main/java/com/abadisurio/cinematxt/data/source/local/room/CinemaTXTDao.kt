@@ -1,6 +1,7 @@
 package com.abadisurio.cinematxt.data.source.local.room
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
 import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
@@ -11,10 +12,10 @@ interface CinemaTXTDao {
 
     //movies
     @Query("SELECT * FROM movieentities")
-    fun getMovies(): LiveData<List<MovieEntity>>
+    fun getMovies(): DataSource.Factory<Int, MovieEntity>
 
     @Query("SELECT * FROM movieentities WHERE favorited = 1")
-    fun getBookmarkMovies(): LiveData<List<MovieEntity>>
+    fun getBookmarkMovies(): DataSource.Factory<Int, MovieEntity>
 
     @Transaction
     @Query("SELECT * FROM movieentities WHERE id = :id")
@@ -28,10 +29,10 @@ interface CinemaTXTDao {
 
     //tv show
     @Query("SELECT * FROM tvshowentities")
-    fun getTVShows(): LiveData<List<TVShowEntity>>
+    fun getTVShows(): DataSource.Factory<Int, TVShowEntity>
 
     @Query("SELECT * FROM tvshowentities WHERE favorited = 1")
-    fun getBookmarkTVShows(): LiveData<List<TVShowEntity>>
+    fun getBookmarkTVShows(): DataSource.Factory<Int, TVShowEntity>
 
     @Transaction
     @Query("SELECT * FROM tvshowentities WHERE id = :id")

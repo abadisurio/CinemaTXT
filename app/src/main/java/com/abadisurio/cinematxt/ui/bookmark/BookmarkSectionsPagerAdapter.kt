@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.abadisurio.cinematxt.R
-import com.abadisurio.cinematxt.ui.movies.MoviesFragment
-import com.abadisurio.cinematxt.ui.tvshows.TVShowsFragment
+import com.abadisurio.cinematxt.ui.bookmarkmovies.BookmarkMoviesFragment
+import com.abadisurio.cinematxt.ui.bookmarktvshows.BookmarkTVShowsFragment
 
-class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class BookmarkSectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     companion object {
         @StringRes
@@ -18,8 +18,8 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment =
         when (position) {
-            0 -> MoviesFragment()
-            1 -> TVShowsFragment()
+            0 -> BookmarkMoviesFragment()
+            1 -> BookmarkTVShowsFragment()
             else -> Fragment()
         }
 

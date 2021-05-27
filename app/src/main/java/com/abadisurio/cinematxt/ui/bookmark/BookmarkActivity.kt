@@ -14,7 +14,7 @@ class BookmarkActivity : AppCompatActivity() {
         val activityBookmarkBinding = ActivityBookmarkBinding.inflate(layoutInflater)
         setContentView(activityBookmarkBinding.root)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+        val sectionsPagerAdapter = BookmarkSectionsPagerAdapter(this, supportFragmentManager)
         activityBookmarkBinding.viewPager.adapter = sectionsPagerAdapter
         activityBookmarkBinding.tabs.setupWithViewPager(activityBookmarkBinding.viewPager)
         supportActionBar?.hide()
