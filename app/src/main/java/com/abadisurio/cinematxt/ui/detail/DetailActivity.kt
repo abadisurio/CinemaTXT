@@ -77,10 +77,11 @@ class DetailActivity : AppCompatActivity() {
                                         data.imagePath,
                                         data.favorited
                                     )
+                                    populateDetail(detailEntity)
                                     activityDetailBinding.favFab.setOnClickListener {
                                         viewModel.setBookmarkMovie()
+                                        Toast.makeText(this, "${if(!detailEntity.favorited) "Ditambahkan ke" else "Dihapus dari"} Bookmark", Toast.LENGTH_LONG).show()
                                     }
-                                    populateDetail(detailEntity)
                                 }
                                 Status.ERROR -> {
                                     activityDetailBinding.progressBar.visibility = View.GONE
@@ -107,10 +108,11 @@ class DetailActivity : AppCompatActivity() {
                                         data.imagePath,
                                         data.favorited
                                     )
+                                    populateDetail(detailEntity)
                                     activityDetailBinding.favFab.setOnClickListener {
                                         viewModel.setBookmarkTVShow()
+                                        Toast.makeText(this, "${if(!detailEntity.favorited) "Ditambahkan ke" else "Dihapus dari"} Bookmark", Toast.LENGTH_LONG).show()
                                     }
-                                    populateDetail(detailEntity)
                                 }
                                 Status.ERROR -> {
                                     activityDetailBinding.progressBar.visibility = View.GONE
@@ -146,6 +148,7 @@ class DetailActivity : AppCompatActivity() {
         glide.into(contentDetailBinding.imagePoster)
         glide.into(activityDetailBinding.imagePoster2)
         setBookmarkState(detailEntity.favorited)
+
         loadSuccess()
     }
     override fun onSupportNavigateUp(): Boolean {

@@ -2,17 +2,29 @@ Unit Test
 
 MoviesViewModelTest
  - Memuat Movies
-    * Mendapatkan data dari repository CinemaTXTRepository
+    * Mendapatkan data dari pagedList
+    * Memastikan data movies tidak null
+    * Memastikan jumlah data movies sesuai dengan yang diharapkan
+    * Memverifikasi observer dengan observer
+
+ - Memuat Bookmark Movies
+    * Mendapatkan data dari pagedList
     * Memastikan data movies tidak null
     * Memastikan jumlah data movies sesuai dengan yang diharapkan
     * Memverifikasi observer dengan observer
 
 TVShowViewModelTest
  - Memuat TV Show
-     * Mendapatkan data dari repository CinemaTXTRepository
+     * Mendapatkan data dari pagedList
      * Memastikan data tv show tidak null
      * Memastikan jumlah data tv show sesuai dengan yang diharapkan
      * Memverifikasi observer dengan observer
+
+ - Memuat Bookmark TV Show
+    * Mendapatkan data dari pagedList
+    * Memastikan data tv show tidak null
+    * Memastikan jumlah data tv show sesuai dengan yang diharapkan
+    * Memverifikasi observer dengan observer
 
 DetailViewModelTest
  - Memuat Detail Movie
@@ -38,8 +50,6 @@ DetailViewModelTest
 
 Instrumentation Test
 
-Mengimplementasikan Idle resource
-
 Pengujian halaman Home Tab Movies
  - Memastikan tablayout telah ditampilkan
  - Memberi tindakan klik pada tab movies
@@ -47,15 +57,6 @@ Pengujian halaman Home Tab Movies
  - Memastikan recycleview telah ditampilkan
  - Memastikan gambar dimuat dengan baik
  - Memberi tindakan klik pada item movies
- - Memastikan halaman detail berhasil ditampilkan
-
-Pengujian halaman Home Tab TV Show
- - Memastikan tablayout telah ditampilkan
- - Memberi tindakan klik pada tab tv show
- - Memastikan viewpager telah ditampilkan
- - Memastikan recycleview telah ditampilkan
- - Memastikan gambar dimuat dengan baik
- - Memberi tindakan klik pada item tv show
  - Memastikan halaman detail berhasil ditampilkan
 
 Pengujian halaman Detail Movie
@@ -69,6 +70,24 @@ Pengujian halaman Detail Movie
  - Memastikan text_description telah sesuai dengan sumber data
  - Memberi tindakan pada btn_share
 
+Pengujian tombol Bookmark Movie
+ - Memberi tindakan klik pada data pertama di rv_movies.
+ - Memberi tindakan klik pada floating action button yang ada di detail movie (bookmark)
+ - Kembali ke halaman sebelumnya.
+ - Klik Action Bookmark dengan id action_bookmark.
+ - Memastikan rv_movies tampil sesuai dengan data yang ada.
+ - Memberi tindakan klik pada data pertama di rv_movies.
+ - Memastikan TextView untuk title tampil sesuai dengan yang diharapkan.
+ - Memberi tindakan klik pada floating action button yang ada (unbookmark)
+
+Pengujian halaman Home Tab TV Show
+ - Memastikan tablayout telah ditampilkan
+ - Memberi tindakan klik pada tab tv show
+ - Memastikan viewpager telah ditampilkan
+ - Memastikan recycleview telah ditampilkan
+ - Memastikan gambar dimuat dengan baik
+ - Memberi tindakan klik pada item tv show
+ - Memastikan halaman detail berhasil ditampilkan
 
 Pengujian halaman Detail TVShow
  - Memastikan gambar telah ditampilkan
@@ -80,3 +99,13 @@ Pengujian halaman Detail TVShow
  - Memastikan text_description telah ditampilkan
  - Memastikan text_description telah sesuai dengan sumber data
  - Memberi tindakan pada btn_share
+
+Pengujian tombol Bookmark TV Show
+ - Memberi tindakan klik pada data pertama di rv_tvshows.
+ - Memberi tindakan klik pada floating action button yang ada di detail tvshow (bookmark)
+ - Kembali ke halaman sebelumnya.
+ - Klik Action Bookmark dengan id action_bookmark.
+ - Memastikan rv_tvshows tampil sesuai dengan data yang ada.
+ - Memberi tindakan klik pada data pertama di rv_tvshows.
+ - Memastikan TextView untuk title tampil sesuai dengan yang diharapkan.
+ - Memberi tindakan klik pada floating action button yang ada (unbookmark)

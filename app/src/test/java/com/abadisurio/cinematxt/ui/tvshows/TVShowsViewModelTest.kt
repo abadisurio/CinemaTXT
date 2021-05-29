@@ -3,9 +3,11 @@ package com.abadisurio.cinematxt.ui.tvshows
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.CinemaTXTRepository
-import com.abadisurio.cinematxt.utils.DataDummy
+import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
+import com.abadisurio.cinematxt.vo.Resource
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
@@ -18,7 +20,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class TVShowsViewModelTest {
 
-    private lateinit var viewModel: BookmarkTVShowsViewModel
+    private lateinit var viewModel: TVShowsViewModel
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -27,27 +29,56 @@ class TVShowsViewModelTest {
     private lateinit var cinemaTXTRepository: CinemaTXTRepository
 
     @Mock
-    private lateinit var observer: Observer<List<TVShowEntity>>
+    private lateinit var observer: Observer<Resource<PagedList<TVShowEntity>>>
+
+    @Mock
+    private lateinit var bookmarkObserver: Observer<PagedList<TVShowEntity>>
+
+    @Mock
+    private lateinit var pagedListTVShow: PagedList<TVShowEntity>
 
     @Before
     fun setUp() {
-        viewModel = BookmarkTVShowsViewModel(cinemaTXTRepository)
+        viewModel = TVShowsViewModel(cinemaTXTRepository)
     }
 
     @Test
     fun getTVShow() {
 
-        val dummyTVShows = DataDummy.generateDummyTVShows()
-        val tvShows = MutableLiveData<List<TVShowEntity>>()
-        tvShows.value = dummyTVShows
+        val dummyTVShows = Resource.success(pagedListTVShow)
+        Mockito.`when`(dummyTVShows.data?.size).thenReturn(11)
 
-        Mockito.`when`(cinemaTXTRepository.getAllTVShows()).thenReturn(tvShows)
-        val tvShowEntities = viewModel.getTVShows().value
+        val tvShow = MutableLiveData<Resource<PagedList<TVShowEntity>>>()
+        tvShow.value = dummyTVShows
+
+        Mockito.`when`(cinemaTXTRepository.getAllTVShows()).thenReturn(tvShow)
+
+        val movieEntities = viewModel.getTVShows().value?.data
         Mockito.verify(cinemaTXTRepository).getAllTVShows()
-        assertNotNull(tvShowEntities)
-        assertEquals(11, tvShowEntities.size)
+        assertNotNull(movieEntities)
+        assertEquals(11, movieEntities?.size)
 
         viewModel.getTVShows().observeForever(observer)
         Mockito.verify(observer).onChanged(dummyTVShows)
+    }
+    @Test
+    fun getBookmarkMovies() {
+
+        val dummyBookmarkTVShows = pagedListTVShow
+        Mockito.`when`(dummyBookmarkTVShows.size).thenReturn(11)
+
+        val tvShows = MutableLiveData<PagedList<TVShowEntity>>()
+        tvShows.value = dummyBookmarkTVShows
+
+        Mockito.`when`(cinemaTXTRepository.getBookmarkedTVShows()).thenReturn(tvShows)
+
+        val tvShowEntities = viewModel.getBookmarkTVShows().value
+        Mockito.verify(cinemaTXTRepository).getBookmarkedTVShows()
+        assertNotNull(tvShowEntities)
+        assertEquals(11, tvShowEntities?.size)
+
+        viewModel.getBookmarkTVShows().observeForever(bookmarkObserver)
+        Mockito.verify(bookmarkObserver).onChanged(dummyBookmarkTVShows)
+
     }
 }

@@ -1,5 +1,6 @@
 package com.abadisurio.cinematxt.ui.detail
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -33,8 +34,8 @@ class DetailViewModel(private val cinemaTXTRepository: CinemaTXTRepository): Vie
         val movieResource = detailMovie.value
         if (movieResource != null) {
             val movie = movieResource.data
-
             val newState = !movie?.favorited!!
+
             cinemaTXTRepository.setBookmarkMovie(movie, newState)
         }
     }
@@ -42,8 +43,8 @@ class DetailViewModel(private val cinemaTXTRepository: CinemaTXTRepository): Vie
         val tvShowResource = detailTVShow.value
         if (tvShowResource != null) {
             val tvShow = tvShowResource.data
-
             val newState = !tvShow?.favorited!!
+
             cinemaTXTRepository.setBookmarkTVShow(tvShow, newState)
         }
     }

@@ -384,4 +384,13 @@ object DataDummy {
 
         return shows
     }
+    fun generateDetailMovies(movies: MovieEntity, favorited: Boolean) : MovieEntity {
+        movies.favorited = favorited
+        return movies
+    }
+
+    fun generateDetailTVShow(tv: TVShowEntity, favorited: Boolean) : TVShowEntity {
+        tv.favorited = favorited
+        return tv
+    }
 }

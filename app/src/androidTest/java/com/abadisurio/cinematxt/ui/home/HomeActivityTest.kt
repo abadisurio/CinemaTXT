@@ -26,7 +26,7 @@ class HomeActivityTest {
 
     @Before
     fun setUp() {
-        ActivityScenario.launch(BookmarkActivity::class.java)
+        ActivityScenario.launch(HomeActivity::class.java)
         IdlingRegistry.getInstance().register(EspressoIdlingResource.idlingResource)
     }
 
@@ -36,10 +36,21 @@ class HomeActivityTest {
     }
 
     @get:Rule
-    var activityRule = ActivityScenarioRule(BookmarkActivity::class.java)
+    var activityRule = ActivityScenarioRule(HomeActivity::class.java)
 
     @Test
     fun loadMovies() {
+        onView(withText("Movies")).perform(click())
+        onView(withId(R.id.tabs)).check(matches(isDisplayed()))
+        onView(withId(R.id.view_pager)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_movies))
+            .perform(RecyclerViewActions
+            .scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size))
+    }
+    @Test
+    fun loadBookmarkMovies() {
+        onView(withId(R.id.action_bookmark)).perform(click())
         onView(withText("Movies")).perform(click())
         onView(withId(R.id.tabs)).check(matches(isDisplayed()))
         onView(withId(R.id.view_pager)).check(matches(isDisplayed()))
@@ -71,7 +82,46 @@ class HomeActivityTest {
     }
 
     @Test
+    fun loadBookmarkButtonMovies() {
+        onView(withText("Movies")).perform(click())
+        onView(withId(R.id.rv_movies)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                position,
+                click()
+            )
+        )
+        onView(withId(R.id.fav_fab)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+
+        onView(withId(R.id.action_bookmark)).perform(click())
+        onView(withText("Movies")).perform(click())
+
+        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_movies)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                position,
+                click()
+            )
+        )
+        onView(withId(R.id.image_poster2)).perform(ViewActions.swipeUp())
+        onView(withId(R.id.image_poster)).check(matches(isDisplayed()))
+        onView(withId(R.id.image_poster)).perform(ViewActions.swipeDown())
+        onView(withId(R.id.fav_fab)).perform(click())
+    }
+
+    @Test
     fun loadTVShows() {
+        onView(withText("TV Shows")).perform(click())
+        onView(withId(R.id.tabs)).check(matches(isDisplayed()))
+        onView(withId(R.id.view_pager)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tvshows)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tvshows))
+            .perform(RecyclerViewActions
+            .scrollToPosition<RecyclerView.ViewHolder>(dummyTVShow.size))
+    }
+    @Test
+    fun loadBookmarkTVShows() {
+        onView(withId(R.id.action_bookmark)).perform(click())
         onView(withText("TV Shows")).perform(click())
         onView(withId(R.id.tabs)).check(matches(isDisplayed()))
         onView(withId(R.id.view_pager)).check(matches(isDisplayed()))
@@ -101,4 +151,32 @@ class HomeActivityTest {
         onView(withId(R.id.text_date)).check(matches(withText(dummyTVShow[position].releaseDate)))
         onView(withId(R.id.btn_share)).perform(click())
     }
+    @Test
+    fun loadBookmarkButtonTVShows() {
+        onView(withText("TV Shows")).perform(click())
+        onView(withId(R.id.rv_tvshows)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                        position,
+                        click()
+                )
+        )
+        onView(withId(R.id.fav_fab)).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
+
+        onView(withId(R.id.action_bookmark)).perform(click())
+        onView(withText("TV Shows")).perform(click())
+
+        onView(withId(R.id.rv_tvshows)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tvshows)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                        position,
+                        click()
+                )
+        )
+        onView(withId(R.id.image_poster2)).perform(ViewActions.swipeUp())
+        onView(withId(R.id.image_poster)).check(matches(isDisplayed()))
+        onView(withId(R.id.image_poster)).perform(ViewActions.swipeDown())
+        onView(withId(R.id.fav_fab)).perform(click())
+    }
+
 }
