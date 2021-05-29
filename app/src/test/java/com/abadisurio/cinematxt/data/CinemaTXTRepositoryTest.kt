@@ -14,7 +14,6 @@ import com.abadisurio.cinematxt.utils.PagedListUtil
 import com.abadisurio.cinematxt.vo.Resource
 import org.junit.Assert.*
 import org.junit.Test
-import org.mockito.Mockito
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.eq
 import org.junit.Rule

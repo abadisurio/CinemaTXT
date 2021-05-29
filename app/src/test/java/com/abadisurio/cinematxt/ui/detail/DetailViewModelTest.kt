@@ -1,7 +1,6 @@
 package com.abadisurio.cinematxt.ui.detail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
@@ -9,7 +8,6 @@ import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import com.abadisurio.cinematxt.vo.Resource
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

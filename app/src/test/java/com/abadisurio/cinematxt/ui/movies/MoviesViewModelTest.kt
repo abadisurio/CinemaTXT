@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.abadisurio.cinematxt.data.source.local.entity.MovieEntity
 import com.abadisurio.cinematxt.data.CinemaTXTRepository
-import com.abadisurio.cinematxt.utils.DataDummy
 import com.abadisurio.cinematxt.vo.Resource
 import org.junit.Assert.*
 import org.junit.Before
@@ -14,7 +13,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
@@ -38,8 +36,6 @@ class MoviesViewModelTest {
 
     @Mock
     private lateinit var pagedListMovie: PagedList<MovieEntity>
-    @Mock
-    private lateinit var pagedListTVShow: PagedList<MovieEntity>
 
     @Before
     fun setUp() {

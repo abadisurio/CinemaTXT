@@ -1,7 +1,6 @@
 package com.abadisurio.cinematxt.data
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.abadisurio.cinematxt.data.source.local.LocalDataSource
