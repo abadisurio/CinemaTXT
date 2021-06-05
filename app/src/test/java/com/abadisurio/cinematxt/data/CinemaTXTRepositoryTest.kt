@@ -58,6 +58,18 @@ class CinemaTXTRepositoryTest {
         assertNotNull(tvShowEntities.data)
         assertEquals(tvShowResponses.size.toLong(), tvShowEntities.data?.size?.toLong())
     }
+
+    @Test
+    fun getBookmarkedMovies() {
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MovieEntity>
+        `when`(local.getBookmarkMovies()).thenReturn(dataSourceFactory)
+        cinemaRepository. getBookmarkedMovies()
+
+        val bookmarkMovieEntities = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyMovies()))
+        verify(local).getBookmarkMovies()
+        assertNotNull(bookmarkMovieEntities.data)
+        assertEquals(movieResponses.size.toLong(), bookmarkMovieEntities.data?.size?.toLong())
+    }
     @Test
     fun getDetailMovie(){
         val dummyDetailMovieEntity = MutableLiveData<MovieEntity>()
@@ -69,6 +81,18 @@ class CinemaTXTRepositoryTest {
         assertNotNull(movieEntities.data)
         assertNotNull(movieEntities.data?.title)
         assertEquals(movieResponses[0].title, movieEntities.data?.title)
+    }
+
+    @Test
+    fun getBookmarkedTVShows() {
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, TVShowEntity>
+        `when`(local.getBookmarkTVShows()).thenReturn(dataSourceFactory)
+        cinemaRepository. getBookmarkedTVShows()
+
+        val bookmarkTVShowEntities = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyTVShows()))
+        verify(local).getBookmarkTVShows()
+        assertNotNull(bookmarkTVShowEntities.data)
+        assertEquals(movieResponses.size.toLong(), bookmarkTVShowEntities.data?.size?.toLong())
     }
 
     @Test

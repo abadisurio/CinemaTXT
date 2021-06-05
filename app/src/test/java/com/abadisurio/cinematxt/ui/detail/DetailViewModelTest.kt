@@ -8,6 +8,8 @@ import com.abadisurio.cinematxt.data.source.local.entity.TVShowEntity
 import com.abadisurio.cinematxt.data.CinemaTXTRepository
 import com.abadisurio.cinematxt.utils.DataDummy
 import com.abadisurio.cinematxt.vo.Resource
+import junit.framework.Assert.assertEquals
+import junit.framework.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -57,19 +59,14 @@ class DetailViewModelTest {
         viewModel.detailMovie.observeForever(movieObserver)
         verify(movieObserver).onChanged(movie.value)
 
-
-
-//        val movieEntity = viewModel.detailMovie.value?.data
-//        verify(cinemaTXTRepository).getDetailMovie(movieId)
-//        assertNotNull(movieEntity)
-//        assertEquals(dummyMovie.movieId, movieEntity?.movieId)
-//        assertEquals(dummyMovie.imagePath, movieEntity?.imagePath)
-//        assertEquals(dummyMovie.releaseDate, movieEntity?.releaseDate)
-//        assertEquals(dummyMovie.title, movieEntity?.title)
-//        assertEquals(dummyMovie.description, movieEntity?.description)
-//
-//        viewModel.detailMovie.observeForever(movieObserver)
-//        verify(movieObserver).onChanged(movie.value)
+        val movieEntity = viewModel.detailMovie.value?.data
+        verify(cinemaTXTRepository).getDetailMovie(movieId)
+        assertNotNull(movieEntity)
+        assertEquals(dummyMovie.movieId, movieEntity?.movieId)
+        assertEquals(dummyMovie.imagePath, movieEntity?.imagePath)
+        assertEquals(dummyMovie.releaseDate, movieEntity?.releaseDate)
+        assertEquals(dummyMovie.title, movieEntity?.title)
+        assertEquals(dummyMovie.description, movieEntity?.description)
 
     }
     @Test
@@ -84,5 +81,15 @@ class DetailViewModelTest {
 
         viewModel.detailTVShow.observeForever(tvShowObserver)
         verify(tvShowObserver).onChanged(tvShow.value)
+
+        val tvShowEntity = viewModel.detailTVShow.value?.data
+        verify(cinemaTXTRepository).getDetailTVShow(tvShowId)
+        assertNotNull(tvShowEntity)
+        assertEquals(dummyTVShow.tvShowId, tvShowEntity?.tvShowId)
+        assertEquals(dummyTVShow.imagePath, tvShowEntity?.imagePath)
+        assertEquals(dummyTVShow.releaseDate, tvShowEntity?.releaseDate)
+        assertEquals(dummyTVShow.title, tvShowEntity?.title)
+        assertEquals(dummyTVShow.description, tvShowEntity?.description)
+
     }
 }
